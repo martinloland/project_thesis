@@ -1,13 +1,60 @@
 \chapter{Introduction}
 
 \section{Background}
-\lipsum[1]
+\todo[inline]{
+\textbf{Todo}
+
+- Impact of robots in the modern society
+
+- Robots are physical components and therefore it is very important to model the physical paramters and behviour if we are to successfull control them
+
+- GeoMod background and intention
+
+- GeoMod's limitations when it comes to physical parameters
+}
 
 \section{Objective}
-\lipsum[1]
+
+\todo[inline]{
+\textbf{Todo}
+
+- determine which physical parameters are important and influential to correctly control a robot, also determine if any properties does not have a significance that it is worth investing the time
+
+- gather information and knowledge on how dynamics of a modern robot work
+
+- develop a robust theoretical framework of the most important physical parameters
+
+- find a good strategy for combining the current work that has been done in GeoMod and a robot model that incorporates the wanted physical properties and calculations
+
+- perform an implementation of the new properties in the current model
+}
 
 \section{Motivation}
-\lipsum[1]
+
+\todo[inline]{
+\textbf{Todo}
+
+- the attempts of controlling a real robotic arm has provided mixed results, with a more robust framework for modelling dynamic behaviour and join limitations the system might be able to take these factors into account
+
+- a model of the dynamics will greatly increase the ability to foresee the state of the robot and will produce important information for PID controller
+
+- kinematic control are great for many reasons, but in some scenarios it might be better to use force control, this could be in situation were the end effector is grinding the surface of an object or any other task that requires the robot to actually touch the object. In a situation like this is is elementary to know the dynamics and forces that are acting in a robot
+
+- if not knowing the physical state of the robot and it's limitations, you might command the motors to perform tasks which goes beyond their saturation and may damage the motors, if knowing the dynamics that are in play in the robot and the limitations of the motors it will be possible to create control algorithms that prevent the motors from damaging itself
+}
 
 \section{Approach}
-\lipsum[1]
+
+\todo[inline]{
+\textbf{Todo}
+
+- Computer visualization of a robot and physical control are performed in two very different ways and use in some places very different math
+
+- This provides to ways of tackling the problem, either with the computer visuals as a basis and implementing physical properties, or the other way around with the physical model as a framework
+
+- As the final goal is to control real robots it would make sense to use the physical properties as a baseline
+
+- On the other hand it seems like GeoMod has a focus on the computer graphics with OpenGL at it's core, this means that physical properties has to be derived from a framework that did not have this intention
+
+- A solution could be to define a robot model with it's physics as it's baseline and at the same time making sure that the final solution would be possible to implement into GeoMod with as few compromises as possible.
+}
