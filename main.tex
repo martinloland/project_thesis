@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mystyle}
 
+\input{glossary}
+
 \pagenumbering{roman}
 \begin{document}
 \input{./tex/titlepage}
@@ -25,6 +27,8 @@
 \input{./tex/kinematics}
 \input{./tex/dynamics}
 \input{./tex/conclusion}
+\gls{maths} is a glossary item
 
+\printglossary
 \printbibliography
 \end{document}
