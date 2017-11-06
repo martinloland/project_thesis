@@ -56,3 +56,11 @@
 
 %\usepackage[parfill]{parskip}
 %\usepackage{tabularx}
+
+%spacing in matrices
+
+\renewcommand{\arraystretch}{.9}
+
+%add text to equation reference
+\let\oldref\eqref
+\renewcommand{\eqref}[1]{Equation \oldref{#1}}

@@ -1,8 +1,28 @@
 \chapter{Theory}
+This chapter will develop the relationships between rigid motion, kinematics, velocity and dynamics. A strong theoretical foundation of these ideas are elementary for a successful modelling of dynamic behaviour. A successful framework will rely heavily on the theoretical background so the content of the coming chapters will strongly build on the theory presented in this part.
 
 \section{Rigid motion}
-\lipsum[1]
 \subsection{Position, rotation and translation}
+\textbf{Rotations in three dimensions}
+
+\noindent If a reference frame $O_0$ is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
+\begin{equation}\label{rotmatrix}
+R^0_1=\begin{bmatrix}
+x_1\cdot x_0 & y_1\cdot x_0 & z_1\cdot x_0\\ 
+x_1\cdot y_0 & y_1\cdot y_0 & z_1\cdot y_0\\ 
+x_1\cdot z_0 & y_1\cdot z_0 & z_1\cdot z_0
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{pointrotation}
+p^0 = R^0_1p^1
+\end{equation}
+
+If $T^0$ is a linear transformation in $O_0$, the same transformation can be expressed in terms if another reference frame $O_1$ as $T^1$ by the help of \eqref{similaritytrans}. This is described as a \textit{similarity transformation} and can be used to express transformation in different reference frames.
+
+\begin{equation}\label{similaritytrans}
+T^1 = (R^0_1)^{-1}T^0 R^0_1
+\end{equation}
 \subsection{Rigid motion}
 \subsection{Spaces}
 
