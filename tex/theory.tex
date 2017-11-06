@@ -3,9 +3,9 @@ This chapter will develop the relationships between rigid motion, kinematics, ve
 
 \section{Rigid motion}
 \subsection{Position, rotation and translation}
-\textbf{Rotations in three dimensions}
+\subsubsection{Rotations in three dimensions}
 
-\noindent If a reference frame $O_0$ is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
+If a reference frame $o_0 x_o y_o z_o$ (denoted $O_0$) is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
 \begin{equation}\label{rotmatrix}
 R^0_1=\begin{bmatrix}
 x_1\cdot x_0 & y_1\cdot x_0 & z_1\cdot x_0\\ 
@@ -23,6 +23,33 @@ If $T^0$ is a linear transformation in $O_0$, the same transformation can be exp
 \begin{equation}\label{similaritytrans}
 T^1 = (R^0_1)^{-1}T^0 R^0_1
 \end{equation}
+
+\subsubsection{Composition of rotational transformations}
+
+If $R^i_j$ and $R^k_l$ represents rotational transformations between reference frames \textit{i, j} and \textit{k, l}. Then point $p^l$ can be described in terms of $O_i$ as in \eqref{rotationcomposition}. This will be rotation with respect to the \textit{current frame}, which will change as as the transformation happen. If a \textit{fixed axis rotation} is wanted instead, the rotation composition has to be pre multiplied instead of post multiplied, shown in \eqref{rotationcomposition_pre}.
+
+
+\begin{equation}\label{rotationcomposition}
+p^i = R^i_j R^k_l p^l
+\end{equation}
+
+\begin{equation}\label{rotationcomposition_pre}
+p^i = R^k_l R^i_j p^l = R R^i_j p^l
+\end{equation}
+
+\subsubsection{Parametrisation of rotations}
+
+In equation \eqref{rotmatrix} the transformation were described in terms of nine independent variables. A rotation in 3D can at most have three independent variables and it is therefore convenient to perform a parametrization to get three independent variables. This can be done by using \textit{euler angles}, \textit{roll pitch yaw} or \textit{axis/angle} representation. The euler angle rotation is rotation about ZYZ axis by an amount $\phi, \theta, \psi$ respectively, see \eqref{eulertrans}. \textit{C} and \textit{s} represents the cosine and sine functions respectively.
+
+\begin{align}\label{eulertrans}
+R_{ZYZ} &= R_{z,\phi}R_{y,\theta}R_{z,\psi} \\
+&= \begin{bmatrix}
+c_\phi c_\theta c_\psi - s_\phi s_\psi & -c_\phi c_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta\\ 
+s_\phi c_\theta c_\psi + c_\phi s_\psi & -s_\phi c_\theta s_\psi + c_\phi c_\psi  & s_\phi s_\theta \\ 
+-s_\theta c_\psi & s_\theta s_\psi & c_\theta
+\end{bmatrix}
+\end{align}
+
 \subsection{Rigid motion}
 \subsection{Spaces}
 
