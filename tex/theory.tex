@@ -85,11 +85,27 @@ R_{3x3} & d_{3x1}\\
 \end{bmatrix}
 \end{equation}
 
-\subsection{Spaces}
 
 \section{Kinematics}
 \lipsum[1]
 \subsection{Denavit-Hartenberg convention}
+
+The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (DH). This convention also provides a common, well known framework for defining robotic systems among engineers.
+
+DH is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively.
+
+\begin{align}\label{DH}
+\begin{split}
+A_i &= Rot_{z,\theta_i}Trans_{z,d_i}Trans_{x,\alpha_i}Rot_{a,\alpha_i} \\
+&= \begin{bmatrix}
+c_{\theta_i} & -s_{\theta_i}c_{\alpha_i} & s_{\theta_i}s_{\alpha_i} & a_{i}c_{\theta_i} \\ 
+s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & a_{i}s_{\theta_i} \\ 
+0 & s_{\alpha_i} & c_{\alpha_i} & d_i \\ 
+0 & 0 & 0 & 1 
+\end{bmatrix}
+\end{split}
+\end{align}
+
 \subsection{Forward and inverse kinematics}
 
 \section{Velocity kinematics}
