@@ -50,7 +50,7 @@
 \usepackage[nodisplayskipstretch]{setspace}
 \setstretch{1.5}
 %\usepackage{setspace}
-%\usepackage[margin=25.4mm]{geometry}
+\usepackage[margin=25.4mm, top=15.4mm]{geometry}
 %\setlength{\tabcolsep}{7pt}
 %\renewcommand{\arraystretch}{1.5}
 %\usepackage[table,xcdraw]{xcolor}
@@ -68,3 +68,6 @@
 %add text to equation reference
 \let\oldref\eqref
 \renewcommand{\eqref}[1]{Equation \oldref{#1}}
+
+%\figref
+\newcommand\figref{Figure~\ref}
