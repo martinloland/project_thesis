@@ -123,6 +123,14 @@ In essence, this establishes the forward kinematic relationship. Each link in th
 
 \subsection{Inverse kinematics}
 
+Given a specific \gls{homo} $H$, the problem of inverse kinematics is to solve the forward kinematic equations for it's joint variables such that the transformation matrix of the robot arm equals that of $H$, \eqref{inverse_kin}.
+
+\begin{equation}\label{inverse_kin}
+T^0_n = H
+\end{equation}
+
+This approach will at most result in twelve nonlinear equations with twelve unknowns and can be very difficult to solve. It is advised to find a geometric solution as this will shorten the computational \todo{insert reference} time. This approach will depend on the actual configuration of the robot and no further theoretical development on a general basis is needed.
+
 \section{Velocity kinematics}
 \lipsum[1]
 \subsection{Jacobian}
