@@ -132,8 +132,45 @@ T^0_n = H
 This approach will at most result in twelve nonlinear equations with twelve unknowns and can be very difficult to solve. It is advised to find a geometric solution as this will shorten the computational \todo{insert reference} time. This approach will depend on the actual configuration of the robot and no further theoretical development on a general basis is needed.
 
 \section{Velocity kinematics}
-\lipsum[1]
+At this point the forward and inverse relationship for the robot has been defined. This section will describe how the velocity of any point on the robot can be defined with respect to the joint variables and it's velocities. This is important for accurate control of the end effector's velocity and when it comes to 
+dynamics as we need to know the velocity and acceleration of the mass centres.
 \subsection{Jacobian}
+
+A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the base frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. Each part of the Jacobian, \Crefrange{Jvel}{Jvi} describes how the rotation of one joint affects the velocity of point $n$. The values can be found from the correct columns in the corresponding homogeneous transformation, \eqref{homeqn} describing that point.
+
+\begin{align}\label{jacobian}
+\begin{split}
+\xi &= J\dot{q}\\
+\begin{bmatrix}
+V^0_n\\ 
+\omega^0_n
+\end{bmatrix}_{6\times 1}
+&=
+\begin{bmatrix}
+J_v\\ 
+J_\omega
+\end{bmatrix}_{6\times n} \begin{bmatrix}
+\dot{q}
+\end{bmatrix}_{n\times 1}
+\end{split}
+\end{align}
+
+\begin{equation}\label{Jvel}
+J_v = \begin{bmatrix}
+J_{v_1} & J_{v_2} & ... & J_{v_n}
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{Jomega}
+J_{\omega} = \begin{bmatrix}
+z_0 & z_1 & ... & z_{n-1}
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{Jvi}
+J_{v_i} = z_{i-1}\times (O_n - O_{i-1})
+\end{equation}
+
 \subsection{Force and torque relationships}
 \subsection{Inverse velocity and acceleration}
 
