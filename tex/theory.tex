@@ -89,6 +89,11 @@ Rigid motion is a combination of rotation and translation. The matrix form is de
 H = \begin{bmatrix}
 R_{3x3} & d_{3x1}\\ 
 0_{1x3} & 1_{1x1}
+\end{bmatrix}=\begin{bmatrix}
+r_{11} & r_{12} & r_{13} & d_{1}\\ 
+r_{21} & r_{22} & r_{23} & d_{2}\\ 
+r_{31} & r_{32} & r_{33} & d_{3}\\ 
+0 & 0 & 0 & 1
 \end{bmatrix}
 \end{equation}
 
@@ -136,7 +141,7 @@ At this point the forward and inverse relationship for the robot has been define
 dynamics as we need to know the velocity and acceleration of the mass centres.
 \subsection{Jacobian}
 
-A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the base frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. Each part of the Jacobian, \Crefrange{Jvel}{Jvi} describes how the rotation of one joint affects the velocity of point $n$. The values can be found from the correct columns in the corresponding homogeneous transformation, \eqref{homeqn} describing that point.
+A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the base frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. 
 
 \begin{align}\label{jacobian}
 \begin{split}
@@ -170,6 +175,12 @@ z_0 & z_1 & ... & z_{n-1}
 \begin{equation}\label{Jvi}
 J_{v_i} = z_{i-1}\times (O_n - O_{i-1})
 \end{equation}
+
+Each part of the Jacobian, \Crefrange{Jvel}{Jvi} describes how the rotation of one joint affects the velocity at point $n$. The values can be found from the correct columns in the corresponding homogeneous transformation, \eqref{homeqn} describing that point. Specifically, $z=\begin{matrix}[
+r_{13} & r_{23} & r_{33}]
+\end{matrix}^T$ and $O=\begin{matrix}[
+d_{1} & d_{2} & d_{3}]
+\end{matrix}^T$.
 
 \subsection{Force and torque relationships}
 \subsection{Inverse velocity and acceleration}
