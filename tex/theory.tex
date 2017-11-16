@@ -182,7 +182,22 @@ r_{13} & r_{23} & r_{33}]
 d_{1} & d_{2} & d_{3}]
 \end{matrix}^T$.
 
+\eqref{jacobian} provides the linear and angular velocity vectors of the point in question. The absolute velocity can then be calculated by \eqref{absvel}. Here the superscript $0$ are left out for simplicity and $r_n$ denotes the vector from the base frame to the point $n$.
+
+\begin{equation}\label{absvel}
+v_{n}=V_n+\omega_n\times r_n
+\end{equation}
+
 \subsection{Force and torque relationships}
+
+The Jacobian in \eqref{jacobian} has a special property. If $F = \begin{matrix}[
+F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
+\end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.\todo{follow up on this}
+
+\begin{equation}\label{Jtorque}
+\tau = J^T F
+\end{equation}
+
 \subsection{Inverse velocity and acceleration}
 
 \section{Dynamics}
