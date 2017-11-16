@@ -216,4 +216,22 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
 
 Any applied force or torque to a system will result in a change in kinetic and potential energy. It is therefore valuable to describe these relations as this will aid in the process of finding the required torques at each link to achieve a specific movement.
 
+The kinetic energy $K$ of a single body is described in \eqref{kineticE}. Note that the linear and angular velocity, $v$ and $\omega$, are the velocities of the center of mass for that body with respect to the fixed frame. The frame attached to this point is called the \textit{body attached frame} and are used for most of the calculations when it comes to dynamics. $I$ represents the inertia tensor with respect to the inertial frame. \todo{describe inertial frame} This tensor will change with the configuration of the body, but the inertia tensor with respect to the \textit{body attached frame} $I_c$ will stay constant. These are related as in \eqref{Irelated}.
+
+\begin{equation}\label{kineticE}
+K = \frac{1}{2}mv^Tv + \frac{1}{2}\omega ^{T}  I \omega
+\end{equation}
+
+\begin{equation}\label{Irelated}
+I = RI_cR^T
+\end{equation}
+
+The potential energy is simply the mass times gravity and height, \eqref{potentialE}. $r_c$ is the vector from the reference frame to the mass center.
+
+\begin{equation}\label{potentialE}
+P = mg^Tr_c
+\end{equation}
+
+
+
 \subsection{Newton euler formulation}
