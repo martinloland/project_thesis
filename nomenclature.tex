@@ -1,0 +1,19 @@
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{P}{Physics Constants}{%
+  \ifstrequal{#1}{N}{Number Sets}{%
+  \ifstrequal{#1}{O}{Other Symbols}{}}}%
+]}
+
+\nomenclature[P]{$c$}{Speed of light in a vacuum inertial system}
+\nomenclature[P]{$h$}{Plank Constant}
+\nomenclature[P]{$g$}{Gravitational Constant}
+\nomenclature[N]{$\mathbf{R}$}{Real Numbers}
+\nomenclature[N]{$\mathbf{C}$}{Complex Numbers}
+\nomenclature[N]{$\mathbf{H}$}{Quaternions}
+\nomenclature[O]{$V$}{Constant Volume}
+\nomenclature[O]{$\rho$}{Friction Index}
