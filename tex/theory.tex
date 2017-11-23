@@ -230,6 +230,7 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
     \def\svgwidth{\columnwidth}
     \input{inkscape/speed.pdf_tex}
     \caption{Velocity and acceleration properties}
+    \label{speed}
 \end{figure}
 
 \begin{figure}[h!]    
@@ -237,6 +238,7 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
     \def\svgwidth{\columnwidth}
     \input{inkscape/forces.pdf_tex}
     \caption{Forces and torques acting on a robot}
+    \label{forces}
 \end{figure}
 
 \begin{figure}[h!]    
@@ -244,6 +246,7 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
     \def\svgwidth{\columnwidth}
     \input{inkscape/physical.pdf_tex}
     \caption{Physical dimensions and properties}
+    \label{physical}
 \end{figure}
 
 
@@ -257,6 +260,12 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
 \section{Mass and moment of inertia}
 
 \subsection{Kinetic and potential energy}
+
+\todo[inline]{
+\textbf{Todo}
+
+- Maybye this section is not needed at all
+}
 
 Any applied force or torque to a system will result in a change in kinetic and potential energy. It is therefore valuable to describe these relations as this will aid in the process of finding the required torques at each link to achieve a specific movement.
 
@@ -280,9 +289,13 @@ P = mg^Tr_c
 
 \subsection{Newton euler formulation}
 
+An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $\mathbf{q}(t)$? Or put in another way, given the current position, velocity and acceleration $\mathbf{q}, \mathbf{\dot{q}}$ and $ \mathbf{\ddot{q}}$, what is the resulting torque $\mathbf{\tau}$? One method to solve this is with the \glsf{nef}. This method is especially relevant for computer calculations because of it's recursive nature. By using the robotic arm in \figref{speed} as a basis, but generalizing by only considering one link $i$ \figref{newtonEuler} will help to describe the \gls{nef}.
+
+
 \begin{figure}[h!]    
     \centering           
     \def\svgwidth{\columnwidth}
     \input{inkscape/newtonEuler.pdf_tex}
     \caption{Newton-Euler variables for link i}
+    \label{newtonEuler}
 \end{figure}
