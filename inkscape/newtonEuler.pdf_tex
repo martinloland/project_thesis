@@ -63,7 +63,10 @@
     \put(0.36101951,0.19249908){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i,ci}$}}}%
     \put(0.22629179,0.05246527){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{newtonEuler.pdf}}%
-    \put(0.48026772,0.13749239){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$m_i g$}}}%
+    \put(0.48026772,0.13749239){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$m_i g_i$}}}%
     \put(0.25761688,0.41418949){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{i-1}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{newtonEuler.pdf}}%
+    \put(0.49674487,0.24859081){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{h}_i$}}}%
+    \put(0.59784641,0.18371742){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{p}_i$}}}%
   \end{picture}%
 \endgroup%

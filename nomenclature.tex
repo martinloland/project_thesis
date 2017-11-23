@@ -4,16 +4,10 @@
 \usepackage{etoolbox}
 \renewcommand\nomgroup[1]{%
   \item[\bfseries
-  \ifstrequal{#1}{P}{Physics Constants}{%
-  \ifstrequal{#1}{N}{Number Sets}{%
-  \ifstrequal{#1}{O}{Other Symbols}{}}}%
+  \ifstrequal{#1}{D}{Dynamics}{%
+  \ifstrequal{#1}{P}{Physical properties}{}}%
 ]}
 
-\nomenclature[P]{$c$}{Speed of light in a vacuum inertial system}
-\nomenclature[P]{$h$}{Plank Constant}
-\nomenclature[P]{$g$}{Gravitational Constant}
-\nomenclature[N]{$\mathbf{R}$}{Real Numbers}
-\nomenclature[N]{$\mathbf{C}$}{Complex Numbers}
-\nomenclature[N]{$\mathbf{H}$}{Quaternions}
-\nomenclature[O]{$V$}{Constant Volume}
-\nomenclature[O]{$\rho$}{Friction Index}
+\nomenclature[D]{$\dot{h}_i$}{change in angular momentum for link i}
+\nomenclature[D]{$\dot{p}_i$}{change in linear momentum for link i}
+\nomenclature[P]{$I_i$}{Inertia tensor for link i with respect to it's body attached frame}

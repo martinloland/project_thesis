@@ -169,6 +169,22 @@
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
          transform="scale(0.4)" />
     </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6633"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6631"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.4)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -177,9 +193,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.7458935"
-     inkscape:cx="338.68677"
-     inkscape:cy="160.135"
+     inkscape:zoom="3.0882777"
+     inkscape:cx="380.0083"
+     inkscape:cy="174.24232"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -376,7 +392,7 @@
          id="tspan18927"
          x="79.275642"
          y="276.86981"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker12131)"
        d="m 105.89146,254.07608 -0.0192,5.78633"
@@ -392,7 +408,7 @@
          id="tspan18937"
          x="105.10195"
          y="258.56808"
-         style="line-height:1;text-align:end;text-anchor:end;stroke-width:0.26458332">$m_i g$</tspan></text>
+         style="line-height:1;text-align:end;text-anchor:end;stroke-width:0.26458332">$m_i g_i$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -404,5 +420,45 @@
          x="82.461029"
          y="230.4313"
          style="line-height:1;stroke-width:0.26458332">$x_{i-1}$</tspan></text>
+    <path
+       d="m 221.65052,-164.88706 a 5.0377359,5.0377359 0 0 1 -4.01383,1.4136 5.0377359,5.0377359 0 0 1 -3.66416,-2.16405"
+       sodipodi:end="2.5403226"
+       sodipodi:start="0.79613056"
+       sodipodi:ry="5.0377359"
+       sodipodi:rx="5.0377359"
+       sodipodi:cy="-168.4873"
+       sodipodi:cx="218.12674"
+       sodipodi:type="arc"
+       id="path6629"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.24036081;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker6633)"
+       transform="matrix(0.8702907,0.49253842,0.49253842,-0.8702907,0,0)"
+       sodipodi:open="true" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path150"
+       d="m 112.43941,251.6491 5.51198,-1.76069"
+       style="fill:none;stroke:#000000;stroke-width:0.264;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker12131)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="106.77748"
+       y="247.27071"
+       id="text154"><tspan
+         sodipodi:role="line"
+         id="tspan152"
+         x="106.77748"
+         y="247.27071"
+         style="line-height:1;text-align:start;text-anchor:start;stroke-width:0.26458332">$\dot{h}_i$</tspan></text>
+    <text
+       id="text158"
+       y="253.86755"
+       x="117.0583"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="line-height:1;text-align:start;text-anchor:start;stroke-width:0.26458332"
+         y="253.86755"
+         x="117.0583"
+         id="tspan156"
+         sodipodi:role="line">$\dot{p}_i$</tspan></text>
   </g>
 </svg>
