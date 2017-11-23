@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{288.24950659bp}%
+    \setlength{\unitlength}{267.94034668bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,25 +48,27 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.43554685)%
+  \begin{picture}(1,0.47033234)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{newtonEuler.pdf}}%
-    \put(0.09700461,0.40044986){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_{i-1}$}}}%
-    \put(0.26786443,0.31395714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$q_i,\dot{q}_i,\ddot{q}_i$}}}%
+    \put(0.03019457,0.44693521){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_{i-1}$}}}%
+    \put(0.21400511,0.35388658){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$q_i,\dot{q}_i,\ddot{q}_i$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{newtonEuler.pdf}}%
-    \put(0.11628652,0.2907432){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$\tau_i$}}}%
-    \put(0.12595793,0.22163029){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$f_i$}}}%
+    \put(0.05093799,0.32891307){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$\tau_i$}}}%
+    \put(0.06134247,0.2545616){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$f_i$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{newtonEuler.pdf}}%
-    \put(0.86828239,0.00429583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-R^{i+1}_{i}f_{i+1}$}}}%
-    \put(0.85364243,0.12453065){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-R^{i+1}_{i}\tau_{i+1}$}}}%
+    \put(0.99713977,0.02075377){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$-R^{i+1}_{i}f_{i+1}$}}}%
+    \put(1.00078725,0.15010206){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$-R^{i+1}_{i}\tau_{i+1}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{newtonEuler.pdf}}%
-    \put(0.693895,0.07977556){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i+1,ci}$}}}%
-    \put(0.36101951,0.19249908){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i,ci}$}}}%
-    \put(0.22629179,0.05246527){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.67232764,0.10195466){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i+1,ci}$}}}%
+    \put(0.31422109,0.22322232){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i,ci}$}}}%
+    \put(0.16928137,0.07257432){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{newtonEuler.pdf}}%
-    \put(0.48026772,0.13749239){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$m_i g_i$}}}%
-    \put(0.25761688,0.41418949){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{i-1}$}}}%
+    \put(0.44250799,0.16404627){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$m_i g_i$}}}%
+    \put(0.20298082,0.46171626){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{i-1}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{newtonEuler.pdf}}%
-    \put(0.49674487,0.24859081){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{h}_i$}}}%
-    \put(0.59784641,0.18371742){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{p}_i$}}}%
+    \put(0.46023407,0.28356565){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{h}_i$}}}%
+    \put(0.56899883,0.21377503){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{p}_i$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{newtonEuler.pdf}}%
+    \put(0.43248762,0.09935663){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$r_{i,i+1}$}}}%
   \end{picture}%
 \endgroup%

@@ -225,6 +225,10 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
 }
 \section{Dynamics}
 
+The goal of this section is to develop at method to determine the force and torque in every joint as a result of the mass and mass distributions, orientation, velocity and acceleration of each link in the chain. To be able to do this, some physical properties has to be defined. The 2-link planar robot will be used as previous for visualization, but the concept apply to any other angular or prismatic configuration.
+
+In \figref{speed} the angular velocity and acceleration along with the linear acceleration is presented. The linear velocity is left out as this does not have any effect on forces.
+
 \begin{figure}[h!]    
     \centering           
     \def\svgwidth{\columnwidth}
@@ -232,6 +236,8 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
     \caption{Velocity and acceleration properties}
     \label{speed}
 \end{figure}
+
+The joint forces and torques together with the gravitational force are presented in \figref{forces}. If there are any end effector forces these will be denoted $f_e$ and $\tau_e$. The gravity is denoted $g_i$ as this vector will be defined with respect to the link in question and may change.
 
 \begin{figure}[h!]    
     \centering           
@@ -241,13 +247,6 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
     \label{forces}
 \end{figure}
 
-\begin{figure}[h!]    
-    \centering           
-    \def\svgwidth{\columnwidth}
-    \input{inkscape/physical.pdf_tex}
-    \caption{Physical dimensions and properties}
-    \label{physical}
-\end{figure}
 
 
 \subsection{Euler-Lagrange equations}
@@ -263,8 +262,16 @@ F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
 
 - explain how the inertia tensor is calculated
 
-- explain how the total mass can be modelled as a single mass point in some cases
+- explain how the total mass can be modelled as a single mass point to simplify
 }
+
+\begin{figure}[h!]    
+    \centering           
+    \def\svgwidth{\columnwidth}
+    \input{inkscape/physical.pdf_tex}
+    \caption{Physical dimensions and properties}
+    \label{physical}
+\end{figure}
 
 \subsection{Kinetic and potential energy}
 

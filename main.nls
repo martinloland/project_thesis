@@ -2,9 +2,13 @@
 
  \nomgroup{D}
 
-  \item [{$\dot{h}_i$}]\begingroup change in angular momentum, link i\nomeqref {0}
+  \item [{$\alpha_i$}]\begingroup angular acceleration for link i\nomeqref {0}
 		\nompageref{i}
-  \item [{$\dot{p}_i$}]\begingroup change in linear momentum, link i\nomeqref {0}
+  \item [{$\dot{h}_i$}]\begingroup change in angular momentum for link i\nomeqref {0}
+		\nompageref{i}
+  \item [{$\dot{p}_i$}]\begingroup change in linear momentum for link i\nomeqref {0}
+		\nompageref{i}
+  \item [{$\omega_i$}]\begingroup angular velocity for link i\nomeqref {0}
 		\nompageref{i}
 
  \nomgroup{P}

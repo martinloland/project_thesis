@@ -50,9 +50,9 @@
   \makeatother%
   \begin{picture}(1,0.39764912)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{forces.pdf}}%
-    \put(0.28259227,0.15634913){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$g_1$}}}%
+    \put(0.28259227,0.15634913){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$m_1g_1$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{forces.pdf}}%
-    \put(0.67900754,0.23288469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$g_2$}}}%
+    \put(0.67900754,0.23288469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$m_2g_2$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{forces.pdf}}%
     \put(0.43500937,0.3833394){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\tau_2$}}}%
     \put(0.45005485,0.27867529){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_2$}}}%
