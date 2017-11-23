@@ -1,0 +1,21 @@
+\begin{algorithm}[H]
+\DontPrintSemicolon
+	\textbf{Forward step}\;
+	$\omega_0, \alpha_0, a_{c,0}, a_{e,0} = 0$  \tcp*[f]{joint 0 is always fixed}\;
+	 \For{link i=1,2,...,n}{
+		  solve $\omega_i$ from (\ref{omega})\;
+		  solve $\alpha$ from (\ref{alpha})\;
+		  solve $a_{e,i}$ from (\ref{a_end})\;
+		  solve $a_{c,i}$ from (\ref{a_center})\;
+	 }
+	 \BlankLine
+	\textbf{Backward step}\;
+	$f_{n+1}, \tau_{n+1} = 0$  \tcp*[f]{if no load at end effector}\;
+	$f_{n+1}, \tau_{n+1} = F, T$  \tcp*[f]{if load at end effector}\;
+	 \For{link i=n,n-1,...,1}{
+		  solve $f_i$ from (\ref{linear_equi})\;
+		  solve $\tau_i$ from (\ref{angular_equi})\;
+	 }
+	 
+ \caption{Newton-Euler method}\label{nefAlgo}
+\end{algorithm}

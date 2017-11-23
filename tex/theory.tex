@@ -294,7 +294,7 @@ P = mg^Tr_c
 
 
 
-\subsection{Newton euler formulation}
+\subsection{Newton-Euler formulation}
 
 An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $\mathbf{q}(t)$? Or put in another way, given the current position, velocity and acceleration $\mathbf{q}, \mathbf{\dot{q}}$ and $ \mathbf{\ddot{q}}$, what is the resulting torque $\mathbf{\tau}$? One method to solve this is with the \glsf{nef}. This method is especially relevant for computer calculations because of it's recursive nature. With reference to the generalized link $i$ in \figref{newtonEuler}, the  \gls{nef} will now be described in it's two steps, forward and backward recursion.
 
@@ -335,7 +335,7 @@ a_{e,i} = \left ( R^{i-1}_i \right )^T a_{e,i-1} + \dot{\omega}_i \times r_{i,i+
 a_{c,i} = \left ( R^{i-1}_i \right )^T a_{e,i-1} + \dot{\omega}_i \times r_{i,ci}+\omega_i \times \left ( \omega_i \times r_{i,ci} \right )
 \end{equation}
 
-Lastly, the backward recursion starts with the last link $n$ and works itself backward until link 1. This step finds the force and torque in each link by solving the equilibrium in \Crefrange{linear_equi}{angular_equi}. An overview of the \gls{nef} as an algorithm is presented in 
+Lastly, the backward recursion starts with the last link $n$ and works itself backward until link 1. This step finds the force and torque in each link by solving the equilibrium in \Crefrange{linear_equi}{angular_equi}. An overview of the \gls{nef} as an algorithm is presented in \algref{nefAlgo}.
 
 \begin{equation}\label{linear_equi}
 \dot{p}_i = f_i - R^i_{i+1} f_{i+1} + m_i g_i
@@ -345,6 +345,7 @@ Lastly, the backward recursion starts with the last link $n$ and works itself ba
 \dot{h}_i = \tau_i - R^i_{i+1}\tau_{i+1} + f_i \times r_{i,ci}-\left ( R^i_{i+1}f_{i+1} \right ) \times r_{i+1,ci}
 \end{equation}
 
+\input{./snippet/newtonEuler}
 
 
 
