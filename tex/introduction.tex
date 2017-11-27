@@ -57,31 +57,14 @@ The same method can be used as engineering guidance when selecting which motors 
 Another issue arises when the suction cup has to press down on the package. The robot has to press down with sufficient force, but not too much as this could damage the package. Simple moment equations can be used to calculate this for a static situation, but in a situation where the package and/or the robot is moving inertial forces has to be accounted for when making these calculations.
 
 
-
-\todo[inline]{
-\textbf{Todo}
-
-- the attempts of controlling a real robotic arm has provided mixed results, with a more robust framework for modelling dynamic behaviour and join limitations the system might be able to take these factors into account
-
-- if not knowing the physical state of the robot and it's limitations, you might command the motors to perform tasks which goes beyond their limitation and may damage the motors, if knowing the dynamics that are in play in the robot and the limitations of the motors it will be possible to create control algorithms that prevent the motors from damaging itself
-}
-
 \section{Objective}
 
 \todo[inline]{
 \textbf{Todo}
 
-- determine which physical parameters are important and influential to correctly control a robot, also determine if any properties does not have a significance that it is worth investing the time
+- Implement a new framework / class structure in GeoMod which is able to calculate joint torque and force because of gravity, external loads and inertial forces
 
-- gather information and knowledge on how dynamics of a modern robot work
 
-- develop a robust theoretical framework of the most important physical parameters
-
-- find a good strategy for combining the current work that has been done in GeoMod and a robot model that incorporates the wanted physical properties and calculations
-
-- perform an implementation of the new properties in the current model
-
-- focus on serial link manipulators with fixed base, these are most the popular configuration. The framework can be expanded to undetermined ROV's at a later stage
 }
 
 \section{Approach}
@@ -89,15 +72,13 @@ Another issue arises when the suction cup has to press down on the package. The 
 \todo[inline]{
 \textbf{Todo}
 
-- Computer visualization of a robot and physical control are performed in two very different ways and use in some places very different math
+- develop a good understanding of relevant theory
 
-- This provides to ways of tackling the problem, either with the computer visuals as a basis and implementing physical properties, or the other way around with the physical model as a framework
+- find a good framework and algorithm for calculating torque and force for joints in a serial manipulator because of gravity, external loads and inertial forces
 
-- As the final goal is to control real robots it would make sense to use the physical properties as a baseline
+- do rapid prototyping / tests on the calculations to check their validity and effectiveness
 
-- On the other hand it seems like GeoMod has a focus on the computer graphics with OpenGL at it's core, this means that physical properties has to be derived from a framework that did not have this intention
-
-- A solution could be to define a robot model with it's physics as it's baseline and at the same time making sure that the final solution would be possible to implement into GeoMod with as few compromises as possible.
+- find a good strategy for combining current work in GeoMod and the new functionality
 
 - A good framework is one which will work for a broad spectrum of different configuration. It is therefore important to find a general solution which does not require any specific / hard coded parameters.
 }
