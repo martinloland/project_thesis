@@ -29,6 +29,11 @@ This chapter will develop the relationships between rigid motion, kinematics, ve
 
 \section{Rigid motion}
 \subsection{Position and rotation}
+\todo[inline]{
+\textbf{Todo}
+
+- This section can probably be shorter
+}
 \subsubsection{Rotations in three dimensions}
 
 If a reference frame $o_0 x_o y_o z_o$ (denoted $O_0$) is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
@@ -160,6 +165,12 @@ At this point the forward and inverse relationship for the robot has been define
 dynamics as we need to know the velocity and acceleration of the mass centres.
 \subsection{Jacobian}
 
+\todo[inline]{
+\textbf{Todo}
+
+- This is not not used in euler-newton method, remove if not used later on
+}
+
 A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the base frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. 
 
 \begin{align}\label{jacobian}
@@ -209,9 +220,15 @@ v_{n}=V_n+\omega_n\times r_n
 
 \subsection{Force and torque relationship}
 
-The Jacobian in \eqref{jacobian} has a special property. If $F = \begin{matrix}[
+The Jacobian in \eqref{jacobian} has a special property. If \\$F = \begin{matrix}[
 F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
-\end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.\todo{follow up on this}
+\end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.
+
+\todo[inline]{
+\textbf{Todo}
+
+- Remove if not used
+}
 
 \begin{equation}\label{Jtorque}
 \tau = J^T F
