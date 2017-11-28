@@ -12,9 +12,11 @@
 \textbf{Todo}
 
 - Where is mechanics calculated as for the robot with forces in joints?
+
+- Is the below description correct?
 }
 
-The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection central parameters for a part like center of gravity (line 3) and frame (line 4). The latter is called extended basis in GeoMod. It also holds a list of coordinates for the geometry (line 7).
+The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection central parameters for a part like center of gravity (line 3) and a combined position orientation (line 4). The latter is called extended basis in GeoMod but defined as a \textit{frame} in section \ref{frameSection}. It also holds a list of coordinates for the geometry (line 7).
 
 \lstinputlisting[caption={\texttt{tgroup.h}, simplified version}]{./snippet/Tgroup.h}\label{Tgroup}
 

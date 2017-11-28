@@ -8,7 +8,7 @@ This chapter will develop the relationships between rigid motion, kinematics, ve
  \label{theory_overview}
 \end{figure}
 
-\subsubsection{Nomenclature and terminology}
+\subsubsection{Nomenclature and terminology}\label{frameSection}
 
 A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Each \gls{frame} can be related to another with a position and orientation vector. Sometimes \textit{reference frame} will be used to describe the same thing. The first frame in a serial manipulator is called the \glsf{inertialframe}. It is fixed and denoted $O_0$. From there each link will have it's frame at the end so that the y-axis is perpendicular to the length of the link and the z-component points in the direction of actuation of the next joint. See \figref{frames}. This way link $n$ connects to joint $n$ and $n+1$. Joint $n$ is in the same position as $O_{n-1}$ so that when joint $n$ is actuated, link $n$ and frame $n$ is moved accordingly. The variable $q$ will be used to denote the joint variable, $\theta$ for revolute and $d$ for prismatic.
 
