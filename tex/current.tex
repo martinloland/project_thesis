@@ -1,62 +1,56 @@
 \chapter{Previous work}\label{previous_work}
 
+\todo[inline]{
+\textbf{Todo}
+- Move GeoMod section to this position?
+}
+
 \section{T-group}
+
 
 \todo[inline]{
 \textbf{Todo}
 
-- Explain the main workings of the T-group
-
-- How does it link computer graphics and mechanics
+- Where is mechanics calculated as for the robot with forces in joints?
 }
 
-\lstinputlisting[caption={\texttt{tgroup.h}, simplified version}]{./snippet/Tgroup.h}
+The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection central parameters for a part like center of gravity (line 3) and frame (line 4). The latter is called extended basis in GeoMod. It also holds a list of coordinates for the geometry (line 7).
 
-\lstinputlisting[caption={\texttt{extbas.h}, simplified version}]{./snippet/ExtBasis.h}
+\lstinputlisting[caption={\texttt{tgroup.h}, simplified version}]{./snippet/Tgroup.h}\label{Tgroup}
+
+%\lstinputlisting[caption={\texttt{extbas.h}, simplified version}]{./snippet/ExtBasis.h}\label{ExtBasis}
 
 \section{Kinematics}
 
 \todo[inline]{
 \textbf{Todo}
 
-- With reference to the T-group, how:
-
-- How is rotation, position and translation defined and controlled in GeoMod now?
-
-- Show the class structure that holds this information
-
 - How is forward and inverse kinematics implemented?
 
-- How is the ability to have fluid motion?
+- How does the classes Modeldata, Machine and arm1 / robot work together?
 }
 
-\section{Visualization}
+A chained robot is made up of multiple parts described by the class \texttt{Part}, \liref{Part}. These parts could be the different parts of the chained robot in \figref{geomod_interface}. Each of the parts can be rotated with direct kinematics (line 9).
 
 \todo[inline]{
 \textbf{Todo}
 
-- With reference to the T-group, how:
-
-- What is the main procedure for going from model geometry to view on screen?
-
-- In what way are the visualization and the physical calculations linked?
-
-- How are rotation and translation of geometry handled?
+- Describe/ show overview of how kinematics work in GeoMod
 }
+
+\lstinputlisting[caption={\texttt{part.h}, simplified version}]{./snippet/Part.h}\label{Part}
+
 
 \section{Dynamics}
 \todo[inline]{
 \textbf{Todo}
 
-- Today's ability for modelling physical properties?
+- Show robot with moment and joint forces example
 
-- Robot with moment and joint forces example
+- Is time stored in any way in the current version?
+
+- What is future\_basis and past\_basis in Tgroup?
 
 - What are the limitations of the current implementation?
 
-- What is the next step or do we have to take a few steps backwards and create a new framework to create support for future functionality?
-
-- Show the parts of the class structure that handles this information
-
-- the attempts of controlling a real robotic arm has provided mixed results, with a more robust framework for modelling dynamic behaviour and join limitations the system might be able to take these factors into account
 }
