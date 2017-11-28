@@ -4,14 +4,14 @@
 \usepackage{etoolbox}
 \renewcommand\nomgroup[1]{%
   \item[\bfseries
-  \ifstrequal{#1}{D}{Dynamics}{%
   \ifstrequal{#1}{L}{Links and joints}{%
+  \ifstrequal{#1}{D}{Dynamics}{%
   \ifstrequal{#1}{P}{Physical properties}{}}}%
 ]}
 
-\nomenclature[D]{$\omega_i$}{angular velocity for link i}
-\nomenclature[D]{$\alpha_i$}{angular acceleration for link i}
+\nomenclature[L]{$\omega_i$}{angular velocity for link i}
+\nomenclature[L]{$\alpha_i$}{angular acceleration for link i}
+\nomenclature[L]{$q_i$}{joint variable for link i, \textit{theta} for revolute and \textit{d} for prismatic}
 \nomenclature[D]{$\dot{h}_i$}{change in angular momentum for link i}
 \nomenclature[D]{$\dot{p}_i$}{change in linear momentum for link i}
 \nomenclature[P]{$I_i$}{inertia tensor for link i with respect to it's body attached frame}
-\nomenclature[L]{$q_i$}{joint variable for link i, \theta for revolute joints and $d$ for prismatic joints}

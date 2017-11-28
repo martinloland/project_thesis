@@ -19,7 +19,7 @@
 %\listoffigures
 %\clearpage
 }
-
+{\setstretch{1.5}
 \pagenumbering{arabic}
 \input{./tex/introduction}
 \input{./tex/software}
@@ -28,9 +28,11 @@
 \input{./tex/kinematics}
 \input{./tex/dynamics}
 \input{./tex/conclusion}
+}
 
-
+{\setstretch{1}
 \printglossary \label{glossary}
 \printnomenclature\label{nomenclature}
+}
 \printbibliography
 \end{document}
