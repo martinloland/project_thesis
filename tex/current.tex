@@ -8,14 +8,6 @@
 \section{T-group}
 
 
-\todo[inline]{
-\textbf{Todo}
-
-- Where is mechanics calculated as for the robot with forces in joints?
-
-- Is the below description correct?
-}
-
 The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection central parameters for a part like center of gravity (line 3) and a combined position orientation (line 4). The latter is called extended basis in GeoMod but defined as a \textit{frame} in section \ref{frameSection}. It also holds a list of coordinates for the geometry (line 7).
 
 \lstinputlisting[caption={\texttt{tgroup.h}, simplified version}]{./snippet/Tgroup.h}\label{Tgroup}
@@ -24,35 +16,20 @@ The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified 
 
 \section{Kinematics}
 
-\todo[inline]{
-\textbf{Todo}
 
-- How is forward and inverse kinematics implemented?
-
-- How does the classes Modeldata, Machine and arm1 / robot work together?
-}
-
-A chained robot is made up of multiple parts described by the class \texttt{Part}, \liref{Part}. These parts could be the different parts of the chained robot in \figref{geomod_interface}. Each of the parts can be rotated with direct kinematics (line 9).
-
-\todo[inline]{
-\textbf{Todo}
-
-- Describe/ show overview of how kinematics work in GeoMod
-}
+A chained robot is made up of multiple parts described by the class \texttt{Part}, \liref{Part}. These parts could be the different parts of the chained robot in \figref{geomod_interface}. Each of the parts can be rotated with direct kinematics (line 9). The \glsf{invkin} is calculated geometrically by \texttt{invKin()}, meaning that the solution is found by a series of predefined geometric rules. These angles are then sent to \texttt{dirKin()} to perform the dirKin \todo{update gls} movements.
 
 \lstinputlisting[caption={\texttt{part.h}, simplified version}]{./snippet/Part.h}\label{Part}
 
-
 \section{Dynamics}
-\todo[inline]{
-\textbf{Todo}
 
-- Show robot with moment and joint forces example
+\figref{geoMod_forces} shows the robot in GeoMod with joint torques visualized as arrows. The magnitude and direction of the torque is calculated by taking the vector product of a radius and force vector for each joint. This calculation is performed as the method \texttt{mechanics()} and called after a direct or inverse kinematic movement has been done. No time-dependent variables or time itself are stored. This means that the calculations are purely static, no dynamic calculations are performed.
 
-- Is time stored in any way in the current version?
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.7\textwidth]{geoMod_forces}
+    \caption{GeoMod graphics view showing forces and moments acting on joints.}
+    \label{geoMod_forces}
+\end{figure}
 
-- What is future\_basis and past\_basis in Tgroup?
-
-- What are the limitations of the current implementation?
-
-}
+To perform any dynamic calculations there are a few changes that had to be implemented during this project. First, the class structure had to store the exact time when calculations were performed. This way approximations to derivatives for various variables could be found. Secondly, movement had to be defined over a time interval so that definite values of velocity and acceleration could be calculated. This would also provide animation to the movement.
