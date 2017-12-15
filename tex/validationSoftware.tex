@@ -13,7 +13,7 @@ It was therefore necessary to create a smaller program that would be able to do 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{robot_control_interface2}
+    \includegraphics[width=.95\textwidth]{robot_control_interface2}
     \caption{Main interface of \textit{Robot Control} validation software}
     \label{interface}
 \end{figure}
@@ -22,22 +22,30 @@ The central area shows the robot and the joint forces and torques in green and r
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=.4\textwidth]{robot_control_console}
+    \includegraphics[width=.25\textwidth]{robot_control_console}
     \caption{Printed transformation matrices, here for a two-armed manipulator.}
     \label{console}
 \end{figure}
 
+\clearpage
+
 \section{Class overview}
 
-This section will give a short overview of the most important classes and properties relevant for the dynamic calculations.
+This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{\_theta} the value and it's derivative plus the time it where calculated is stored, (line 8, 10 and 12). The angular velocity and acceleration is then calculated in \texttt{update\_dynamics()} with \Crefrange{omega_calc}{alpha_calc}. The force and torque (line 16,17) is calculated as in \Crefrange{linear_equi}{angular_equi}.
 
-\todo[inline]{
-\textbf{Todo}
 
-- Describe the intention and structure of the following classes:
+\lstinputlisting[caption={\texttt{Link.h}, simplified version}]{./snippet/Link.h}\label{Link}
 
-- Robot, Link, Transformation and RenderArea class
-}
+\begin{equation}\label{omega_calc}
+\omega = \frac{\Delta \theta}{\Delta t}=\frac{\_theta-\_theta\_prev}{clock()-last\_update}
+\end{equation}
+
+\begin{equation}\label{alpha_calc}
+\alpha = \frac{\Delta \omega}{\Delta t}=\frac{\_omega-\_omega\_prev}{clock()-last\_update}
+\end{equation}
+
+\lstinputlisting[caption={\texttt{Robot.h}, simplified version}]{./snippet/Robot.h}\label{Robot}
+
 
 \section{Drawing}
 
