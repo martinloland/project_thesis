@@ -55,28 +55,12 @@ The \texttt{Robot} class can be seen in Listing 5.2 \todo{manual reference}. Lin
 \textbf{Todo}
 
 - Since this doesn't impact the dynamic calculations, maybe drop this section?
-
-- Describe how the QPainter class works
-
-- Method for drawing arrows
-
-- All the calculations are done for a 3D case, but everything is shown in 2D
 }
 
 \section{Animation}
 
-As mentioned in section \ref{interfaceSec} a start and end angle is stored for each link.
+As mentioned in section \ref{interfaceSec} a start and end angle, $\theta_0$ and $\theta_1$ is stored for each link. By evaluating the desired animation length and elapsed time an animation percentage $\tau$ is calculated. This value is is passed to the method \textsf{Robot::animate(percentage)} which calculates the joint angle for each joint by \eqref{quintic}. This is 5th degree polynomial used for trajectory planning with velocity and acceleration equal to zero at start and end.
 
-\todo[inline]{
-\textbf{Todo}
-
-- It was important to have continuous moving links to verify the calculations
-
-- start and end for each link can be set
-
-- animation between these values, quintic graphs
-
-- computer time is stored for last position so that derivatives can be calculated
-
-- Must be calculated in a way that does not depend on the computer or available processing power, not a fixed frames per second
-}
+\begin{equation}\label{quintic}
+\theta\left ( \tau \right ) = \theta_0 + \left ( \theta_1 - \theta_0\right )\left ( 6 \tau^5-15\tau^4 + 10\tau^3\right )
+\end{equation}
