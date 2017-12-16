@@ -5,7 +5,7 @@ It was important to validate the calculations done in this project continuously.
 It was therefore necessary to create a smaller program that would be able to do the calculations and visualize the results. That way, the algorithms could be validated and their practicality determined as fast as possible. This approach can be compared to rapid prototyping in traditional manufacturing, fail early to succeed sooner.
 
 
-\section{Interface}
+\section{Interface}\label{interfaceSec}
 
 \figref{interface} shows the interface for the completed software created in QtCreator. This section will give a short overview of the functionality of the software, starting with the left column.
 
@@ -31,7 +31,7 @@ The central area shows the robot and the joint forces and torques in green and r
 
 \section{Class overview}
 
-This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{\_theta} the value and it's derivative plus the time it where calculated is stored, (line 8, 10 and 12). The angular velocity and acceleration is then calculated in \texttt{update\_dynamics()} with \Crefrange{omega_calc}{alpha_calc}. The force and torque (line 16,17) is calculated as in \Crefrange{linear_equi}{angular_equi}.
+This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{\_theta} the value and it's derivative plus the time it where calculated is stored, (line 8, 10 and 12). The angular velocity and acceleration is then calculated in \texttt{update\_dynamics()} with \Crefrange{omega_calc}{alpha_calc}. The force and torque (line 16,17) is calculated as in \Crefrange{linear_equi}{angular_equi}, $j$ denotes the next link in the chain.
 
 
 \lstinputlisting[caption={\texttt{Link.h}, simplified version}]{./snippet/Link.h}\label{Link}
@@ -46,11 +46,15 @@ This section will give a short overview of the two most important classes for th
 
 \lstinputlisting[caption={\texttt{Robot.h}, simplified version}]{./snippet/Robot.h}\label{Robot}
 
+The \texttt{Robot} class can be seen in Listing 5.2 \todo{manual reference}. Links that make up the robot are stored in a c++ vector (line 4). Many of the calculations is done by looping through this vector one after one. The function \textsf{newtonEuler()} is one of them and perform the dynamic calculations as described in \algref{nefAlgo}.
+
 
 \section{Drawing}
 
 \todo[inline]{
 \textbf{Todo}
+
+- Since this doesn't impact the dynamic calculations, maybe drop this section?
 
 - Describe how the QPainter class works
 
@@ -60,6 +64,8 @@ This section will give a short overview of the two most important classes for th
 }
 
 \section{Animation}
+
+As mentioned in section \ref{interfaceSec} a start and end angle is stored for each link.
 
 \todo[inline]{
 \textbf{Todo}
