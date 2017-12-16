@@ -8,5 +8,5 @@ class Robot
 	void addLink(Link* link);
 	void change_theta(double theta, int link_index);
 	void animate(double percentage);
-	void newtonEuler();
+	void newtonEuler(int inc_dynamic_eff);
 }

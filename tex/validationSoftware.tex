@@ -1,6 +1,6 @@
 \chapter{Validation software}
 
-It was important to validate the calculations done in this project continuously. As many of the calculations are not static, but because of inertial forces is was important visualize these changes as they were happening. It was decided that implementing this feature in GeoMod would be too time consuming because of it's size and complexity. 
+It was important to validate the calculations done in this project continuously. As many of the calculations are not static, but because of inertial forces is was important to visualize these changes as they were happening. It was decided that implementing this feature in GeoMod would be too time consuming because of it's size and complexity. 
 
 It was therefore necessary to create a smaller program that would be able to do the calculations and visualize the results. That way, the algorithms could be validated and their practicality determined as fast as possible. This approach can be compared to rapid prototyping in traditional manufacturing, fail early to succeed sooner.
 
@@ -9,16 +9,18 @@ It was therefore necessary to create a smaller program that would be able to do 
 
 \figref{interface} shows the interface for the completed software created in QtCreator. This section will give a short overview of the functionality of the software, starting with the left column.
 
-\textsf{Add links} lets the user define a revolute manipulator arm by the \gls{DH} or \textsf{Add default links} can be used to insert a predefined manipulator. By selecting a specific link in the list, it's variables can be viewed and changed in the \textsf{Weight} and \textsf{Joint angle} section. A start and end angle can be defined for each link with the \textsf{Set start/end} button. By pressing the \textsf{to start/end} button the whole manipulator will animate between these configurations over a time specified as in \textsf{Animation time}. The \textsf{Print robot} button will print the transformation matrix for each link and the robot as a whole to the console as in \figref{console}.
+\textsf{Add links} lets the user define a revolute manipulator arm by the \gls{DH} or \textsf{Add default links} can be used to insert a predefined manipulator. By selecting a specific link in the list, it's variables can be viewed and changed in the \textsf{Weight} and \textsf{Joint angle} section. A start and end angle can be defined for each link with the \textsf{Set start/end} button. By pressing the \textsf{to start/end} button the whole manipulator will animate between these configurations over a time specified as in \textsf{Animation time}. The \textsf{Print robot} button will print the transformation matrix for each link and the robot as a whole to the console as in \figref{console}. \textsf{Include dynamic effects} can be toggled off to exclude those contributions from the calculations.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=.95\textwidth]{robot_control_interface2}
+    \includegraphics[width=\textwidth]{robot_control_interface4}
     \caption{Main interface of \textit{Robot Control} validation software}
     \label{interface}
 \end{figure}
 
-The central area shows the robot and the joint forces and torques in green and red respectively. The larger the arrow, the larger the force or torque is. Graphics can be panned and zoomed with the middle mouse button. Lastly, the right hand side shows useful information for each link and are updated continuously. These are helpful properties used for debugging and validation.
+The central area shows the robot together with some relevant vectors for each link. Force and torque in green and red respectively while blue for the linear velocity. The larger the arrow, the larger the force, torque or velocity is.Graphics can be panned and zoomed with the middle mouse button.
+
+Lastly, the right hand side shows useful information for each link and are updated continuously. These are helpful properties used for debugging and validation. Under \textsf{Display} each of the graphical arrows can be turned on and off
 
 \begin{figure}[h!]
     \centering
@@ -27,21 +29,16 @@ The central area shows the robot and the joint forces and torques in green and r
     \label{console}
 \end{figure}
 
-\clearpage
 
 \section{Class overview}
 
-This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{\_theta} the value and it's derivative plus the time it where calculated is stored, (line 8, 10 and 12). The angular velocity and acceleration is then calculated in \texttt{update\_dynamics()} with \Crefrange{omega_calc}{alpha_calc}. The force and torque (line 16,17) is calculated as in \Crefrange{linear_equi}{angular_equi}, $j$ denotes the next link in the chain.
+This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{q} the value and it's derivative plus the time it were calculated is stored, (line 7, 8 and 9). The angular joint velocity is then calculated in \texttt{newton\_euler\_forward()} with \eqref{omega_calc}, similar for the joint acceleration. The force and torque is calculated as part of the \texttt{newton\_euler\_backward()} method.
 
 
 \lstinputlisting[caption={\texttt{Link.h}, simplified version}]{./snippet/Link.h}\label{Link}
 
 \begin{equation}\label{omega_calc}
-\omega = \frac{\Delta \theta}{\Delta t}=\frac{\_theta-\_theta\_prev}{clock()-last\_update}
-\end{equation}
-
-\begin{equation}\label{alpha_calc}
-\alpha = \frac{\Delta \omega}{\Delta t}=\frac{\_omega-\_omega\_prev}{clock()-last\_update}
+\dot{q} = \frac{\Delta q}{\Delta t}=\frac{q-q\_prev}{clock()-last\_update}
 \end{equation}
 
 \lstinputlisting[caption={\texttt{Robot.h}, simplified version}]{./snippet/Robot.h}\label{Robot}
@@ -59,7 +56,7 @@ The \texttt{Robot} class can be seen in Listing 5.2 \todo{manual reference}. Lin
 
 \section{Animation}
 
-As mentioned in section \ref{interfaceSec} a start and end angle, $\theta_0$ and $\theta_1$ is stored for each link. By evaluating the desired animation length and elapsed time an animation percentage $\tau$ is calculated. This value is is passed to the method \textsf{Robot::animate(percentage)} which calculates the joint angle for each joint by \eqref{quintic}. This is 5th degree polynomial used for trajectory planning with velocity and acceleration equal to zero at start and end.
+As mentioned in section \ref{interfaceSec} a start and end angle, $\theta_0$ and $\theta_1$ is stored for each link. By evaluating the desired animation length and elapsed time an animation percentage $\tau$ is calculated. This value is passed to the method \textsf{Robot::animate(percentage)} which calculates the joint angle for each joint by \eqref{quintic}. This is a 5th degree polynomial used for trajectory planning with velocity and acceleration equal to zero at start and end.
 
 \begin{equation}\label{quintic}
 \theta\left ( \tau \right ) = \theta_0 + \left ( \theta_1 - \theta_0\right )\left ( 6 \tau^5-15\tau^4 + 10\tau^3\right )

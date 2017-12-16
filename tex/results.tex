@@ -1,0 +1,48 @@
+\chapter{Results}
+
+This chapter will present some of the findings 
+
+\todo[inline]{
+\textbf{Todo}
+
+- Is the Newton-Euler formulation successful at calculating dynamic forces?
+}
+
+\section{Static and dynamic difference}
+
+\begin{figure}[h!]
+\begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{result2_static}
+    \caption{Without dynamic effects}
+    \label{result_static}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{result2_dynamic}
+    \caption{With dynamic effects}
+\end{subfigure}
+\caption{Comparison of force response in system without and with dynamic effects}
+\label{result_img}
+\end{figure}
+
+\figref{result_img} shows a robot configuration halfway through an animation where the dynamic contribution is (a) turned off and (b) turned on. Since no inertial forces are considered in \figref{result_static} it is expected that this would produce results similar to a static case. The velocities in blue are the same in both figures but some differences in force and torque can be seen.
+
+Firstly, in the static case the joint forces only contain a vertical component. This is as expected as the resulting joint force should only be a result of gravity forces only. When considering inertial forces in (b) it is clear that they now have a horizontal component. This is coherent with the velocity (and acceleration) that can be
+
+\todo[inline]{
+\textbf{Todo}
+
+- how big is the difference between static and dynamic calculations
+
+- show images with difference
+}
+
+\section{Convergence}
+
+\todo[inline]{
+\textbf{Todo}
+
+- record max torque with different animation times
+}
