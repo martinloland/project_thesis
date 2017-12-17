@@ -19,7 +19,7 @@
 \label{result_img}
 \end{figure}
 
-\figref{result_img} shows a robot configuration halfway through an animation where the dynamic contribution is (a) turned off and (b) turned on. Since no inertial forces are considered in \figref{result_static} it is expected that this would produce results similar to a static case. The acceleration in magenta are the same in both figures but some differences in force and torque can be seen.
+\figref{result_img} shows a robot configuration halfway through a trajectory where the dynamic contribution is (a) turned off and (b) turned on. Since no inertial forces are considered in \figref{result_static} it is expected that this would produce results similar to a static case. The acceleration in magenta are the same in both figures but some differences in force and torque can be seen.
 
 Firstly, in the static case the joint forces only contain a vertical component. This is as expected as the resulting joint force should be a result of gravity forces only. When considering inertial forces in (b) it is clear that they now have a horizontal component. This is coherent with the acceleration that can be seen. In this situation the joint forces has to support the change in momentum in addition to the weight of the link.
 
@@ -33,6 +33,6 @@ The addition to the joint force because of inertial forces are directly related 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.9\textwidth]{joint_force_comp}
-    \caption{Joint force magnitude for multiple animation times}
+    \caption{Joint force magnitude for multiple animation lengths}
     \label{results}
 \end{figure}

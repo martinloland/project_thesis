@@ -23,13 +23,15 @@ A chained robot is made up of multiple parts described by the class \texttt{Part
 
 \section{Dynamics}
 
-\figref{geoMod_forces} shows the robot in GeoMod with joint torques visualized as arrows. The magnitude and direction of the torque is calculated by taking the vector product of a radius and force vector for each joint. This calculation is performed as the method \texttt{mechanics()} and called after a direct or inverse kinematic movement has been done. No time-dependent variables or time itself are stored. This means that the calculations are purely static, no dynamic calculations are performed.
+\figref{geoMod_forces} shows the robot in GeoMod with joint moments visualized as arrows. The necessary motor torque (red) is calculated by taking the vector product of a radius and force vector for each joint. This calculation is performed after a direct or inverse kinematic movement has been done. No time-dependent variables or time itself is stored. This means that the calculations are purely static, no dynamic calculations are performed.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{geoMod_forces}
-    \caption{GeoMod graphics view showing forces and moments acting on joints.}
+    \caption{GeoMod graphics view showing moments acting on joints.}
     \label{geoMod_forces}
 \end{figure}
 
 To perform any dynamic calculations there are a few changes that had to be implemented during this project. First, the class structure had to store the exact time when calculations were performed. This way approximations to derivatives for various variables could be found. Secondly, movement had to be defined over a time interval so that definite values of velocity and acceleration could be calculated. This would also provide animation to the movement.
+
+\todo{can possibly use fig 2.1 instead}
