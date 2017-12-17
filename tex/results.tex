@@ -1,13 +1,5 @@
 \chapter{Results}
 
-This chapter will present some of the findings 
-
-\todo[inline]{
-\textbf{Todo}
-
-- Is the Newton-Euler formulation successful at calculating dynamic forces?
-}
-
 \section{Static and dynamic difference}
 
 \begin{figure}[h!]
@@ -33,10 +25,14 @@ Firstly, in the static case the joint forces only contain a vertical component. 
 
 \section{Convergence}
 
-\todo[inline]{
-\textbf{Todo}
-
-- record max torque with different animation times
-}
-
 The addition to the joint force because of inertial forces are directly related to the acceleration of the links,  \eqref{linear_equi} and (\ref{linear_mom}). The following section will present the results from a test which intention was to verify that as the acceleration got slower, the forces would converge to those of a static case.
+
+\figref{results} shows the force magnitude as function of animation percentage for multiple animation lengths. The used animation is described in \figref{animation}. It can be seen that the inertial forces have a big impact on the force magnitude for rapid movement and that the force converges to the static case as the animation time is increased.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.9\textwidth]{joint_force_comp}
+    \caption{Joint force magnitude for multiple animation times}
+    \label{results}
+\end{figure}
