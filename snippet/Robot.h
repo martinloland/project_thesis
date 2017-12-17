@@ -2,8 +2,7 @@ class Robot
 {
 	// Attributes //	
 	vector<Link*> links;
-	Transformation T;
-	
+	Transformation T;	
 	// Methods //
 	void addLink(Link* link);
 	void change_theta(double theta, int link_index);

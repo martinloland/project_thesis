@@ -37,6 +37,8 @@ This section will give a short overview of the two most important classes for th
 
 The \texttt{Robot} class can be seen in Listing 5.2 \todo{manual reference}. Links that make up the robot are stored in a c++ vector (line 4). Many of the calculations is done by looping through this vector. The function \textsf{newtonEuler()} is one of them and perform the dynamic calculations as described in \algref{nefAlgo}.
 
+In addition, multiple mathematical classes like matrices and vectors that handle algebraic operations were created.
+
 \section{Animation}
 
 As mentioned in section \ref{interfaceSec} a start and end angle, $\theta_0$ and $\theta_1$ is stored for each link. By evaluating the desired animation length and elapsed time an animation percentage $\tau$ is calculated. This value is passed to the method \textsf{Robot::animate(percentage)} which calculates the joint angle for each joint by \eqref{quintic}. This is a 5th degree polynomial used for trajectory planning with velocity and acceleration equal to zero at the start and end of the trajectory. See \figref{plot_position}.

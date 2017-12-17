@@ -6,8 +6,7 @@ class Link
     vec torque;
     double q;
     double q_prev;
-    int last_update = 0;
-	
+    int last_update = 0;	
 	// Methods //
     void change_theta(double theta);
     void newton_euler_forward(int inc_dynamic_eff);

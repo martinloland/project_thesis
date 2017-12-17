@@ -2,17 +2,15 @@
 
 \section{Discussion}
 
-\todo[inline]{
-\textbf{Todo}
+It is clear from \figref{results} that inertial forces play a big role at high accelerations. If the animation time was reduced with $50\%$ from $3000ms$ to $1500ms$ the max joint force went from $27.9N$ to $34.8N$. This is an increase of $\sim 25\%$ and the effect would be even more prominent at higher accelerations.
 
-- Does not include the joint's limitations
+Going back to the example case of the package moving manipulator in \figref{exampleCase}, it becomes clear that information about the inertial forces would be helpful in a number of situations. Before constructing a robot manipulator, the maximum force and torque could be found for a given acceleration and the robot engineered thereafter. In addition, under runtime the robot would now have some of the tools required to determine if a certain acceleration would produce larger torques that it can handle. It can then choose a slower trajectory because of this.
 
-- How is the performance of this method?
-}
+The validation software proved very useful. In some situations the graphical vectors did not make physical sense and many calculation errors were corrected because of this. The two main classes makes logical sense and the code base is relatively dense. It should be noted that many of the calculations are not done with efficiency in mind but rather a fast implementation time. This is something that has to improved in a production environment.
 
 \section{Future work}
+\subsection{Finishing the newton euler}
 \subsection{Implementation with GeoMod}
-\subsection{Limit and flexibility of joints}
-\subsection{Singularities}
-\subsection{Multivariable control}
+\subsection{Numeric safety when calculating derivatives}
+\subsection{Flexibility of joints}
 \subsection{Force control}
