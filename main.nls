@@ -9,16 +9,23 @@
 
  \nomgroup{L}
 
-  \item [{$\alpha_i$}]\begingroup angular acceleration for link i\nomeqref {0}
+  \item [{$\alpha_i$}]\begingroup angular acceleration for link i in global frame\nomeqref {0}
 		\nompageref{i}
-  \item [{$\omega_i$}]\begingroup angular velocity for link i\nomeqref {0}
+  \item [{$\ddot{q_i}$}]\begingroup joint acceleration for link i in body attached frame\nomeqref {0}
 		\nompageref{i}
-  \item [{$q_i$}]\begingroup joint variable for link i, \textit{theta} for revolute joints and \textit{d} for prismatic joints\nomeqref {0}
+  \item [{$\dot{q_i}$}]\begingroup joint velocity for link i in body attached frame\nomeqref {0}
+		\nompageref{i}
+  \item [{$\omega_i$}]\begingroup angular velocity for link i in global frame\nomeqref {0}
+		\nompageref{i}
+  \item [{$\theta_i$}]\begingroup link angle for link i in global frame\nomeqref {0}
+		\nompageref{i}
+  \item [{$q_i$}]\begingroup joint angle for link i in body attached frame, \textit{theta} for revolute and \textit{d} for prismatic\nomeqref {0}
 		\nompageref{i}
 
  \nomgroup{P}
 
   \item [{$I_i$}]\begingroup inertia tensor for link i with respect to it's body attached frame\nomeqref {0}
 		\nompageref{i}
+  \item [{$m_i$}]\begingroup mass of link i\nomeqref {0}\nompageref{i}
 
 \end{thenomenclature}
