@@ -4,19 +4,9 @@ For words written in \textit{italic} throughout this thesis, please visit the gl
 
 \section{Background}
 
-\todo[inline]{
-\textbf{Todo}
+The word \glsf{robot} could have many meanings depending on the context. In the context of this thesis the focus will be towards a serial manipulator robot and will be described in more detail in the next section.
 
-- Define what is meant by \textit{robot}
-
-- The use of robots in today's  society
-
-- Robots are physical components and therefore it is very important to model the physical parameters and behaviour if we are to successful control them
-
-- GeoMod background and intention
-
-- GeoMod's limitations with connecting kinematic behaviour to dynamic properties such as inertia and resulting torques
-}
+GeoMod is a geometric modelling application created by the supervisor, Sven Fjeldaas with additions from previous students. It was created with the intention to control and visualize autonomous serial manipulators with a focus on underwater \glsf{rov}'s. It posesses the ability to calculate motor torque and bearing moments for a static case, but not considering \glsf{inforce}.
 
 \section{Motivation}
 
@@ -54,31 +44,10 @@ The same method can be used as engineering guidance when selecting which motors 
 \label{joint_position}
 \end{figure}
 
-Another issue arises when the suction cup has to press down on the package. The robot has to press down with sufficient force, but not too much as this could damage the package. Simple moment equations can be used to calculate this for a static situation, but in a situation where the package and/or the robot is moving, the inertial forces has to be accounted for when making these calculations.
-
+Another issue arises when the suction cup has to press down on the package. The robot has to press down with sufficient force, but not too much as this could damage the package. Simple moment equations can be used to calculate this for a static situation, but in a situation where the package and/or the robot is moving, the \gls{inforce} has to be accounted for when making these calculations.
 
 \section{Objective}
 
-\todo[inline]{
-\textbf{Todo}
+The goal for this thesis has been to (a), develop a good understanding of the dynamic principles for a serial manipulator, (b) find a suitable algorithm for calculating force and moments in joints because of static and inertial forces and (c) test and verify this algorithm on a robot configuration.
 
-- Implement a new framework / class structure in GeoMod which is able to calculate joint torque and force because of gravity, external loads and inertial forces
-
-
-}
-
-\section{Approach}
-
-\todo[inline]{
-\textbf{Todo}
-
-- develop a good understanding of relevant theory
-
-- find a good framework and algorithm for calculating torque and force for joints in a serial manipulator because of gravity, external loads and inertial forces
-
-- do rapid prototyping / tests on the calculations to check their validity and effectiveness
-
-- find a good strategy for combining current work in GeoMod and the new functionality
-
-- A good framework is one which will work for a broad spectrum of different configuration. It is therefore important to find a general solution which does not require any specific / hard coded parameters.
-}
+It is important that the chosen algorithm is able to calculate the correct forces for numerous robot configuration. If this is accomplished the calculations will not depend on the type of robot. Any changes made to the robot will therefore not affect the validity of the force and moment calculations.
