@@ -9,8 +9,17 @@ Going back to the example case of the package moving manipulator in \figref{exam
 The validation software proved very useful. In some situations the graphical vectors did not make physical sense and many calculation errors were corrected because of this. The two main classes makes logical sense and the code base is relatively dense. It should be noted that many of the calculations are not done with efficiency in mind but rather a fast implementation time. This is something that has to improved in a production environment.
 
 \section{Future work}
+
 \subsection{Finalizing the Newton-Euler method}
+At the time of writing, there are still some implementations that has to be done to complete the Newton-Euler method for calculating joint force and torque. While change in linear momentum would effect the joint force and torque, angular moment would not. This means that \eqref{angular_mom} is left out from \eqref{angular_equi}.
+
 \subsection{Implementation with GeoMod}
-\subsection{Numeric safety when calculating derivatives}
-\subsection{Flexibility of joints}
-\subsection{Force control}
+When the Newton-Euler method has been tested thoroughly the next step would be to implement this into the feature set of GeoMod. Some key changes has to be mode to GeoMod for this to work. GeoMod has to handle time such that derivatives can be calculated and trajectories over finite time be created. In addition, while the validation software consist of two main classes, GeoMod is a network of many. The Newton-Euler method needs to loop through the links both ways to work and a method for this has to be created in GeoMod.
+
+\subsection{Improved derivative calculations}
+
+The \texttt{clock()} function mentioned in section \ref{reptime} is not very accurate. It is sufficient accurate for animation, but when determining the double derivative of variables, small numerical errors propagate and reduce the accuracy of the calculations. This can be observed as small disturbances in the force graph of \figref{results}. The effect is largest in the $1500ms$ graph with the highest acceleration. There are other options to the \texttt{clock()} function with higher accuracy which should be studied closer.
+
+\subsection{Flexibility of joint and link}
+
+Up to this point all parts of the robot is assumed to be perfectly rigid. This means that the stiffness of joints and links is modelled as infinite. Low stiffness of links could increase the force in the joints since the links would act similar to a torsional spring. For simple dynamic modelling this is not necessary. If vibration or oscillation is important this might be useful to look into.

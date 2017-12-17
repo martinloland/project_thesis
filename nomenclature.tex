@@ -9,9 +9,16 @@
   \ifstrequal{#1}{P}{Physical properties}{}}}%
 ]}
 
-\nomenclature[L]{$\omega_i$}{angular velocity for link i}
-\nomenclature[L]{$\alpha_i$}{angular acceleration for link i}
-\nomenclature[L]{$q_i$}{joint variable for link i, \textit{theta} for revolute and \textit{d} for prismatic}
+\nomenclature[L]{$\theta_i$}{link angle for link i in global frame}
+\nomenclature[L]{$\omega_i$}{angular velocity for link i in global frame}
+\nomenclature[L]{$\alpha_i$}{angular acceleration for link i in global frame}
+
+\nomenclature[L]{$q_i$}{joint angle for link i in body attached frame, \textit{theta} for revolute and \textit{d} for prismatic}
+\nomenclature[L]{$\dot{q_i}$}{joint velocity for link i in body attached frame}
+\nomenclature[L]{$\ddot{q_i}$}{joint acceleration for link i in body attached frame}
+
 \nomenclature[D]{$\dot{h}_i$}{change in angular momentum for link i}
 \nomenclature[D]{$\dot{p}_i$}{change in linear momentum for link i}
+
 \nomenclature[P]{$I_i$}{inertia tensor for link i with respect to it's body attached frame}
+\nomenclature[P]{$m_i$}{mass of link i}
