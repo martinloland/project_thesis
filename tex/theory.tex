@@ -279,7 +279,7 @@ I = \int r^{2}dm
 
 \subsection{Newton-Euler formulation}
 
-An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $q(t)$? Or put in another way, given the current position, velocity and acceleration $q, \dot{q}$ and $\ddot{q}$, what is the resulting torque $\tau$ and force $f$ each joint have to endure? One method to solve this is with the \glsf{nef}. This method is especially relevant for computer calculations because of it's recursive nature. With reference to the generalized link $i$ in \figref{newtonEuler}, the  \gls{nef} will now be described in it's two steps, forward and backward recursion.
+An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $q(t)$? Or put in another way, given the current position, velocity and acceleration $q, \dot{q}$ and $\ddot{q}$, what is the resulting torque $\tau$ and force $f$ each joint have to endure? One method to solve this is with the \glsf{nef}. With reference to the generalized link $i$ in \figref{newtonEuler}, the  \gls{nef} will now be described in it's two steps, forward and backward recursion.
 
 \begin{figure}[h!]    
     \centering           
@@ -327,6 +327,10 @@ Lastly, the backward recursion starts with the last link $n$ and works itself ba
 \begin{equation}\label{angular_equi}
 \dot{h}_i = \tau_i - R^i_{i+1}\tau_{i+1} + f_i \times r_{i,ci}-\left ( R^i_{i+1}f_{i+1} \right ) \times r_{i+1,ci}
 \end{equation}
+
+An opposing alternative to the Newton-Euler method is the Euler-Lagrange formulation. This method will consider the manipulator as a whole while the Newton-Euler method has a distinct link by link recursive procedure. Because of the recursion in Newton-Euler, it is easier to implement and is known to be generally faster \cite{Hollerbach1980}.
+
+\clearpage
 
 \input{./snippet/newtonEuler}
 

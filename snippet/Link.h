@@ -4,8 +4,7 @@ class Link
     Transformation A;
     vec force;
     vec torque;
-    double q;
-    double q_prev;
+    double q, q_prev;
     int last_update = 0;	
 	// Methods //
     void change_theta(double theta);

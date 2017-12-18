@@ -2,7 +2,7 @@
 
 It was important to validate the calculations done in this project continuously. As many of the calculations are not static, but because of inertial forces is was important to visualize these changes as they were happening. It was decided that implementing this feature in GeoMod would be too time consuming because of it's size and complexity. 
 
-It was therefore necessary to create a smaller program that would be able to do the calculations and visualize the results. That way, the algorithms could be validated and their practicality determined as fast as possible.
+It was therefore necessary to create a smaller program that would be able to do the calculations and visualize the results as a form of prototyping. That way, the algorithms could be validated and their practicality determined as fast as possible.
 
 
 \section{Interface}\label{interfaceSec}
@@ -24,8 +24,7 @@ Lastly, the right hand side shows useful information for each link and are updat
 
 \section{Class overview}
 
-This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 \todo{manual reference} shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{q} the value and it's derivative plus the time it were calculated is stored, (line 7, 8 and 9). The angular joint velocity is then calculated in \texttt{newton\_euler\_forward()} with \eqref{omega_calc}, similar for the joint acceleration. The force and torque is calculated as part of the \texttt{newton\_euler\_backward()} method.
-
+This section will give a short overview of the two most important classes for the dynamic calculations. Listing 5.1 shows the \texttt{Link} class. This class stores all properties needed to define a link and it's current state. When a change is made to the joint angle \texttt{q} the value and the time it were calculated is stored, (line 7 and 8). The angular joint velocity is then calculated in \texttt{newton\_euler\_forward()} with \eqref{omega_calc}, similar for the joint acceleration. \Crefrange{d_der}{d_derder} has been used to find the velocity and acceleration of the link with respect to the inertial reference frame. The force and torque is calculated as part of the \texttt{newton\_euler\_backward()} method.
 
 \lstinputlisting[caption={\texttt{Link.h}, simplified version}]{./snippet/Link.h}\label{Link}
 
@@ -35,7 +34,7 @@ This section will give a short overview of the two most important classes for th
 
 \lstinputlisting[caption={\texttt{Robot.h}, simplified version}]{./snippet/Robot.h}\label{Robot}
 
-The \texttt{Robot} class can be seen in Listing 5.2 \todo{manual reference}. Links that make up the robot are stored in a c++ vector (line 4). Many of the calculations is done by looping through this vector. The function \texttt{newtonEuler()} is one of them and perform the dynamic calculations as described in \algref{nefAlgo}.
+The \texttt{Robot} class can be seen in Listing 5.2. Links that make up the robot are stored in a c++ vector (line 4). Many of the calculations is done by looping through this vector. The function \texttt{newtonEuler()} is one of them and perform the dynamic calculations as described in \algref{nefAlgo}.
 
 In addition, multiple mathematical classes like matrices and vectors that handle algebraic operations were created.
 
