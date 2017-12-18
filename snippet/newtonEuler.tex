@@ -11,7 +11,7 @@
 	 \BlankLine
 	\textbf{Backward step}\;
 	$f_{n+1}, \tau_{n+1} = 0$  \tcp*[f]{if no load at end effector}\;
-	$f_{n+1}, \tau_{n+1} = F, T$  \tcp*[f]{if load at end effector}\;
+	$f_{n+1}, \tau_{n+1} = f_e, \tau_e$  \tcp*[f]{if load at end effector}\;
 	 \For{link i=n,n-1,...,1}{
 		  solve $f_i$ from (\ref{linear_equi})\;
 		  solve $\tau_i$ from (\ref{angular_equi})\;
