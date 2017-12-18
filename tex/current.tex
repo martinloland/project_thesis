@@ -1,9 +1,13 @@
 \chapter{Previous work}\label{previous_work}
 
-\todo[inline]{
-\textbf{Todo}
-- Move GeoMod section to this position?
-}
+\figref{geomod_interface} shows the main window for geometry modelling in GeoMod. Most of the work that has been done in GeoMod is concerned with generating 3D  views of robots and trajectory planning. It also has the ability to calculate required motors torques and joint moments for static loads. The following chapter will shortly describe how this is done. 
+
+\begin{figure}
+ \centering 
+ \includegraphics[width=.5\linewidth]{geomod_robot}
+ \caption{GeoMod 3D visualization interface}
+ \label{geomod_interface}
+\end{figure}
 
 \section{T-group}
 
@@ -34,4 +38,3 @@ A chained robot is made up of multiple parts described by the class \texttt{Part
 
 To perform any dynamic calculations there are a few changes that had to be implemented during this project. First, the class structure had to store the exact time when calculations were performed. This way approximations to derivatives for various variables could be found. Secondly, movement had to be defined over a time interval so that definite values of velocity and acceleration could be calculated. This would also provide animation to the movement.
 
-\todo{can possibly use fig 2.1 instead}

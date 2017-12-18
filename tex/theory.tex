@@ -1,33 +1,26 @@
+%\newgeometry{top=0.5cm}
 \chapter{Theory}
-This chapter will develop the relationships between rigid motion, kinematics, velocity and dynamics, \figref{theory_overview}. A strong theoretical foundation of these ideas are important for a successful modelling of dynamic behaviour. A successful framework will rely heavily on the theoretical background so the content of the coming chapters will strongly build on the theory presented in this part.
+%This chapter will develop the relationships between rigid motion, kinematics, velocity and dynamics. A successful framework will rely heavily on the theoretical background so the content of the coming chapters will strongly build on the theory presented in this part.
 
-\begin{figure}
- \centering 
- \includegraphics[width=\linewidth]{theory_overview.pdf}
- \caption{Four main parts required to describe the dynamics of a robot}
- \label{theory_overview}
-\end{figure}
+%\subsubsection{Nomenclature and terminology}\label{frameSection}
 
-\subsubsection{Nomenclature and terminology}\label{frameSection}
+A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Each \gls{frame} can be related to another with a position and orientation vector. Sometimes \textit{reference frame} will be used to describe the same thing.
 
-A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Each \gls{frame} can be related to another with a position and orientation vector. Sometimes \textit{reference frame} will be used to describe the same thing. The first frame in a serial manipulator is called the \glsf{inertialframe}. It is fixed and denoted $O_0$. From there each link will have it's frame at the end so that the y-axis is perpendicular to the length of the link and the z-component points in the direction of actuation of the next joint. See \figref{frames}. This way link $n$ connects to joint $n$ and $n+1$. Joint $n$ is in the same position as $O_{n-1}$ so that when joint $n$ is actuated, link $n$ and frame $n$ is moved accordingly. The variable $q$ will be used to denote the joint variable, $\theta$ for revolute and $d$ for prismatic.
+The first frame in a serial manipulator is called the \glsf{inertialframe} and denoted $O_0$ (big letter O and subscript zero), see \figref{frames}. The next frame in the chain is $O_1$ and is connected to $O_0$ through link 1. Joint 1 with angle $q_1$ is situated in the origo of $O_0$ while joint 2 is located at $O_1$. In general, link $n$ connects to joint $n$ and $n+1$. Joint $n$ is in the same position as $O_{n-1}$ so that when joint $n$ is actuated, link $n$ and frame $n$ is moved accordingly. The variable $q$ will be used to denote the joint variable.
 
 \begin{figure}[h!]    
     \centering           
-    \def\svgwidth{.8\columnwidth}
+    \def\svgwidth{.9\columnwidth}
     \input{inkscape/frames.pdf_tex}
     \caption{Frames, links, joints and joint variables for a revolute serial manipulator}
     \label{frames}
 \end{figure}
+\restoregeometry
 
 
 \section{Rigid motion}
 \subsection{Position and rotation}
-\todo[inline]{
-\textbf{Todo}
 
-- This section can be shorter
-}
 \subsubsection{Rotations in three dimensions}
 
 If reference frame $O_0$ is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
@@ -122,11 +115,6 @@ To describe the dynamics in a serial manipulator or robots in general it's kinem
 
 \subsection{Denavit-Hartenberg convention}
 
-\todo[inline]{
-\textbf{Todo}
-
-- Evaluate the benefit of this section
-}
 
 The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (DH). This convention also provides a common, well known framework for defining robotic systems among engineers.
 
@@ -164,12 +152,6 @@ This approach will at most result in twelve nonlinear equations with twelve unkn
 At this point the forward and inverse relationship for the robot has been defined. This section will describe how the velocity of any point on the robot can be defined with respect to the joint variables and it's velocities. This is important for accurate control of the end effector's velocity and when it comes to 
 dynamics as we need to know the velocity and acceleration of the mass centres.
 \subsection{Jacobian}
-
-\todo[inline]{
-\textbf{Todo}
-
-- This is not not used in euler-newton method, remove if not used later on
-}
 
 A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the inertial frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. 
 
@@ -224,22 +206,10 @@ The Jacobian in \eqref{jacobian} has a special property. If \\$F = \begin{matrix
 F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
 \end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.
 
-\todo[inline]{
-\textbf{Todo}
-
-- Remove if not used
-}
-
 \begin{equation}\label{Jtorque}
 \tau = J^T F
 \end{equation}
 
-\subsection{Inverse velocity and acceleration}
-\todo[inline]{
-\textbf{Todo}
-
- - Decide if this section is not needed for my project
-}
 \section{Dynamics}
 
 The goal of this section is to develop at method to determine the force and torque in every joint as a result of the mass and mass distributions, orientation, velocity and acceleration of each link in the chain. To be able to do this, some physical properties has to be defined. The 2-link planar robot will be used as previous for visualization, but the concept apply to any other angular or prismatic configuration.
@@ -263,15 +233,6 @@ The joint forces and torques together with the gravitational force are presented
     \caption{Forces and torques acting on a robot}
     \label{forces}
 \end{figure}
-
-
-
-\subsection{Euler-Lagrange equations}
-\todo[inline]{
-\textbf{Todo}
-
-- It seems like this is more on theoretical background on the topic of virtual work, not very relevant when it comes to practical use. Maybe drop this?
-}
 
 \subsection{Mass and moment of inertia}
 \todo[inline]{

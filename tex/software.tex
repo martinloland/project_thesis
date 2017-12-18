@@ -1,43 +1,15 @@
+\newgeometry{top=0.5cm}
 \chapter{Software and tools}
-
+\vspace*{-10mm}
 \section{Qt}
-\todo[inline]{
-\textbf{Todo}
 
-- Short information about why Qt has been chosen
+Qt is a cross-platform application framework that is used for developing application software, or graphical user interfaces. \todo{reference}There are numerous alternatives but Qt stands out because of it's cross platform functionality, powerful feature set and good documentation. QtCreator is the integrated development environment that comes together with Qt and version 5.9.1 has been used for this project. The Microsoft Visual C++ Compiler 15.0 has been used for compilation.
 
-- Compiler version 
+\section{OpenGl and OpenCV}
 
-- OpenGL in qt
-}
-
-\section{OpenCV}
-
-\todo[inline]{
-\textbf{Todo}
-
-- should I include this section even though it is not used in my project?
-}
-
-\section{GeoMod}
-
-\todo[inline]{
-\textbf{Todo}
-
-- Move this to previous work?
-
-- Who has created it and what is it's intention
-
-- Feature set and main operation
-}
-
-\begin{figure}
- \centering 
- \includegraphics[width=.7\linewidth]{geomod_robot}
- \caption{GeoMod 3D visualization interface}
- \label{geomod_interface}
-\end{figure}
+QtCreator comes bundled with OpenGL, a 2D and 3D graphics engine. This is required for running GeoMod. OpenCV is an open source computer vision and machine learning software library. It is used in some parts of GeoMod and will in those situations be a requirement. None of the two above has been used in this project.
 
 \section{Representing time}\label{reptime}
 
 A computer works in clock cycles and has no understanding of time. By counting the number of clock cycles and divide by clocks per second it is able to estimate the elapsed time. The \texttt{clock()} function contained in the standard c++ \texttt{time.h} library returns the total number of $ms$ elapsed since the program started. This has been used to calculate time-dependent animation and derivatives.
+\restoregeometry
