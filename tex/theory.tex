@@ -1,9 +1,6 @@
 \newgeometry{top=0.0cm, bottom=2.5cm}
 \vspace{-0.9cm}
 \chapter{Theory}\label{secTheory}
-%This chapter will develop the relationships between rigid motion, kinematics, velocity and dynamics. A successful framework will rely heavily on the theoretical background so the content of the coming chapters will strongly build on the theory presented in this part.
-
-%\subsubsection{Nomenclature and terminology}\label{frameSection}
 
 \vspace{-0.8cm}
 
@@ -92,13 +89,15 @@ r_{31} & r_{32} & r_{33} & d_{3}\\
 
 \section{Kinematics}
 
-To describe the dynamics in a serial manipulator or robots in general it's kinematic relationships has to be used. In this section the forward and inverse kinematics will be described shortly and will form the basis for velocity kinematics and dynamics.
+Kinematics describes the relationship between the joint angles and the position and orientation of the robot as a whole. The topic can be divided into \textit{direct} and \textit{inverse} kinematics. \textit{Forward} is in some places used instead of \textit{direct}. To define the direct kinematics, the Denavit-Hartenberg convention has been used.
 
 \subsection{Denavit-Hartenberg convention}
 
-The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (D-H), first introduced in 1955 \cite{DH}. This convention also provides a common, well known framework for defining robotic systems among engineers and has been broadly adopted.
+The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. By introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (D-H), first introduced in 1955 \cite{DH}. This convention also provides a common, well known framework for defining robotic systems among engineers and has been broadly adopted.
 
-A D-H transformation is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively, for link number \textit{i}. The homogeneous transformation matrix from $O_0$ to the \gls{endeff} $n$ will then be the product sum of the transformations for each link, \eqref{DHsum}.
+A D-H transformation is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively, for link number \textit{i}. For more information on how these variables are assigned, the reader is encouraged to read some of the literature about it, \cite{Corke2007}.
+
+The homogeneous transformation matrix from $O_0$ to the \gls{endeff} $n$ will then be the product sum of the transformations for each link, \eqref{DHsum}.
 
 \begin{align}\label{DH}
 \begin{split}
@@ -116,7 +115,7 @@ s_{\theta_i} & c_{\theta_i}c_{\alpha_i} & -c_{\theta_i}s_{\alpha_i} & a_{i}s_{\t
 T^0_n=\prod_{i=1}^{n}A_i
 \end{equation}
 
-In essence, this establishes the forward kinematic relationship. Each link in the robot can be defined as in \eqref{DH} where either $\theta_i$ or $d_i$ is the varying variable depending on the joint is revolute or prismatic. Lastly, \eqref{DHsum} will give the position and rotation of the end effector with respect to the inertial frame.
+In essence, this establishes the forward kinematic relationship. Each link in the robot can be defined as in \eqref{DH} where either $\theta_i$ or $d_i$ is the varying variable depending on the joint is revolute or prismatic. Lastly, \eqref{DHsum} will give the position and rotation of the end effector with respect to $O_0$.
 
 \subsection{Inverse kinematics}
 
@@ -126,14 +125,15 @@ Given a specific \gls{homo} $H$, the problem of inverse kinematics is to solve t
 T^0_n = H
 \end{equation}
 
-This approach will at most result in twelve nonlinear equations with twelve unknowns and can be very difficult to solve. It is advised to find a geometric solution as this will shorten the computational \todo{insert reference} time. This approach will depend on the actual configuration of the robot and no further theoretical development on a general basis is needed.
+This approach will at most result in twelve nonlinear equations with twelve unknowns and can be very difficult to solve. There are multiple approaches for simplifying this problem, but since the topic is of limited interest in this thesis no more time will be spent on it.
 
 \section{Velocity kinematics}
-At this point the forward and inverse relationship for the robot has been defined. This section will describe how the velocity of any point on the robot can be defined with respect to the joint variables and it's velocities. This is important for accurate control of the end effector's velocity and when it comes to 
-dynamics as we need to know the velocity and acceleration of the mass centres.
+
+This section will describe how the velocity of any point on the robot can be defined with respect to the joint variables and it's velocities. Using what is called the \textit{Jacobian} is one method. It has range of applications when it comes to robotics, especially when it comes to inverse kinematic problems \cite{Duleba2013} and singularities \cite{Shi2012}. It is not directly needed for dynamics in direct kinematics, but a short description is included because of it's importance in the field.
+
 \subsection{Jacobian}
 
-A relationship between the joint velocities and the velocity of a specific point on the robot has to be established. This is the purpose of the $Jacobian$ related to that point, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the inertial frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. 
+The Jacobian establish the relationship between the velocity of a certain point on the robot $\xi$ and the joint velocities $\dot{q}$, \eqref{jacobian}. Where the linear and angular velocity of point $n$ with respect to the inertial frame $O_0$, $V^0_n$ and $\omega^0_n$ respectively is a product of the Jacobian $J$ and the joint velocities $\dot{q}$. 
 
 \begin{align}\label{jacobian}
 \begin{split}
@@ -180,14 +180,26 @@ d_{1} & d_{2} & d_{3}]
 v_{n}=V_n+\omega_n\times r_n
 \end{equation}
 
-\subsection{Force and torque relationship}
+%\subsection{Force and torque relationship}
+%
+%The Jacobian in \eqref{jacobian} has a special property. If \\$F = \begin{matrix}[
+%F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
+%\end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.
+%
+%\begin{equation}\label{Jtorque}
+%\tau = J^T F
+%\end{equation}
 
-The Jacobian in \eqref{jacobian} has a special property. If \\$F = \begin{matrix}[
-F_{x} & F_{y} & F_{z} & n_x & n_y & n_z]^T
-\end{matrix}$ is the force and torque vector at the end effector, the transpose of the Jacobian then describes the torques at each joint, \eqref{Jtorque}. This will prove helpful when the same equation can be used to find torques at the joints because of dynamic forces.
+\subsection{Time difference in position vector}
 
-\begin{equation}\label{Jtorque}
-\tau = J^T F
+An optional method to the Jacobian for calculating velocities and accelerations is the following. By looking at the difference in position over a finite time period, the velocity and acceleration can be calculated. The position vector would be $d$ from \eqref{homeqn} and velocity and acceleration can be calculated as in \eqref{d_der} and (\ref{d_derder}). $d_i$ and $v_i$ represent the position and velocity at time $t$ respectively.
+
+\begin{equation}\label{d_der}
+v_i = \dot{d} = \frac{d_{i}-d_{i-1}}{t_i-t_{i-1}}
+\end{equation}
+
+\begin{equation}\label{d_derder}
+a_i = \ddot{d} = \frac{v_{i}-v_{i-1}}{t_i-t_{i-1}}
 \end{equation}
 
 \section{Dynamics}
