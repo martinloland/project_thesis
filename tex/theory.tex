@@ -1,20 +1,25 @@
-%\newgeometry{top=0.5cm}
+\newgeometry{top=0.0cm, bottom=2.5cm}
+\vspace{-0.9cm}
 \chapter{Theory}\label{secTheory}
 %This chapter will develop the relationships between rigid motion, kinematics, velocity and dynamics. A successful framework will rely heavily on the theoretical background so the content of the coming chapters will strongly build on the theory presented in this part.
 
 %\subsubsection{Nomenclature and terminology}\label{frameSection}
 
-The following chapter will develop the most useful expressions used to define the dynamic behaviour of a linked mechanism. Most of the notation and conventions will follow those from the book \textit{Robot Modeling and Control} by M.W Spong. \cite{spong}.
+\vspace{-0.8cm}
 
-A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Each \gls{frame} can be related to another with a position and orientation vector. Sometimes \textit{reference frame} will be used to describe the same thing.
+The following chapter will develop the most used expressions for calculations of dynamic behaviour in a linked mechanism. Most of the notation and conventions will follow \textit{Robot Modeling and Control} by Spong (2006). \cite{spong}
 
-The first frame in a serial manipulator is called the \glsf{inertialframe} and denoted $O_0$ (big letter O and subscript zero), see \figref{frames}. The next frame in the chain is $O_1$ and is connected to $O_0$ through link 1. Joint 1 with angle $q_1$ is situated in the origo of $O_0$ while joint 2 is located at $O_1$. In general, link $n$ connects to joint $n$ and $n+1$. Joint $n$ is in the same position as $O_{n-1}$ so that when joint $n$ is actuated, link $n$ and frame $n$ is moved accordingly. The variable $q$ will be used to denote the joint variable.
+A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Sometimes \textit{reference frame} will be used to describe the same thing. The frame is defined with three orthogonal unit vectors and position relative to another frame.
+
+The first frame in a serial manipulator is called the \glsf{inertialframe} and denoted $O_0$ (big letter O and subscript zero). It is defined to have position and rotation equal to zero, see \figref{frames}. The next frame in the chain is $O_1$ and is connected to $O_0$ through link 1.
+
+Joint 1 ($q_1$ in the figure) is situated in the origo of $O_0$, while joint 2 is located at $O_1$. In general, link $n$ connects to joint $n$ and $n+1$. Joint $n$ is in the same position as $O_{n-1}$ so that when joint $n$ is actuated, link $n$ and frame $n$ is moved accordingly. The variable $q$ will be used to denote the joint variable. This is the angular displacement for a revolute joint or linear displacement for a prismatic (linear) joint.
 
 \begin{figure}[h!]    
     \centering           
-    \def\svgwidth{.9\columnwidth}
+    \def\svgwidth{.7\columnwidth}
     \input{inkscape/frames.pdf_tex}
-    \caption{Frames, links, joints and joint variables for a revolute serial manipulator}
+    \caption{Frames, links and joints for a revolute serial manipulator}
     \label{frames}
 \end{figure}
 \restoregeometry
@@ -23,9 +28,13 @@ The first frame in a serial manipulator is called the \glsf{inertialframe} and d
 \section{Rigid motion}
 \subsection{Position and rotation}
 
-\subsubsection{Rotations in three dimensions}
+\subsubsection{Rotation in three dimensions}
 
-If reference frame $O_0$ is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
+Frame $O_1$ in \figref{frames} has a rotation with respect to $O_0$, in this case a positive z-rotation $q_1$, using the right hand rule. It is helpful to express an arbitrary rotation in all three dimensions and this is the intention of the rotation matrix, \eqref{rotmatrix}. This is a $3\times3$ matrix and can be found by taking the vector products of the unit vectors as in the equation. $R_1^0$ will describe the \textit{rotation matrix} from $O_0$ to $O_1$. By post multiplying $R_1^0$ with a position vector with respect to $O_1$, $p^1$, it is possible to obtain the coordinates to the same point $p^0$, but now with respect to $O_0$, see \eqref{pointrotation}.
+
+This is only considering a rotation of the frame, not translation as will be described shortly. For a 2D scenario where only rotation along the z-axis is possible the matrix would reduce to \eqref{rot2d}
+
+%If reference frame $O_0$ is rotated in all three dimensions to $O_1$ the \textit{rotation matrix} can be described as the projection of the unit axis in $O_1$ onto $O_0$ as in \eqref{rotmatrix}. This matrix will be used to express point $p^1$ in the reference frame of $O_0$, \eqref{pointrotation}. The same rotation matrix can also be used as an operator to rotate a vector in a fixed reference frame.
 \begin{equation}\label{rotmatrix}
 R^0_1=\begin{bmatrix}
 x_1\cdot x_0 & y_1\cdot x_0 & z_1\cdot x_0\\ 
@@ -36,6 +45,14 @@ x_1\cdot z_0 & y_1\cdot z_0 & z_1\cdot z_0
 
 \begin{equation}\label{pointrotation}
 p^0 = R^0_1p^1
+\end{equation}
+
+\begin{equation}\label{rot2d}
+R^0_1(q_1)_z=\begin{bmatrix}
+cos\left ( q_1 \right ) & -sin\left ( q_1 \right ) & 0\\ 
+sin\left ( q_1 \right ) & cos\left ( q_1 \right ) & 0\\ 
+0 & 0 & 1
+\end{bmatrix}
 \end{equation}
 
 If $T^0$ is a linear transformation in $O_0$, the same transformation can be expressed in terms if another reference frame $O_1$ as $T^1$ by the help of \eqref{similaritytrans}. This is described as a \textit{similarity transformation} and can be used to express transformation in different reference frames.
@@ -117,8 +134,7 @@ To describe the dynamics in a serial manipulator or robots in general it's kinem
 
 \subsection{Denavit-Hartenberg convention}
 
-
-The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (DH). This convention also provides a common, well known framework for defining robotic systems among engineers.
+The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (DH), first introduced in 1955 \cite{DH}. This convention also provides a common, well known framework for defining robotic systems among engineers.
 
 A DH transformation is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively, for link number \textit{i}. The transformation from the rigid frame $0$ to the end effector $n$ will then be the product sum of the transformations for each link, \eqref{DHsum}.
 
