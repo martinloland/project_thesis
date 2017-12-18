@@ -55,61 +55,23 @@ sin\left ( q_1 \right ) & cos\left ( q_1 \right ) & 0\\
 \end{bmatrix}
 \end{equation}
 
-If $T^0$ is a linear transformation in $O_0$, the same transformation can be expressed in terms if another reference frame $O_1$ as $T^1$ by the help of \eqref{similaritytrans}. This is described as a \textit{similarity transformation} and can be used to express transformation in different reference frames.
-
-\begin{equation}\label{similaritytrans}
-T^1 = (R^0_1)^{-1}T^0 R^0_1
-\end{equation}
 
 \subsubsection{Composition of rotational transformations}
 
-If $R^0_1$ and $R^1_2$ represents rotational transformations between reference frames \textit{0, 1} and \textit{1, 2}. Then point $p^2$ can be described in terms of $O_0$ as in \eqref{rotationcomposition}. This will be rotation with respect to the \textit{current frame}, which will change as as the transformation happen. If a \textit{fixed axis rotation} is wanted instead, the rotation composition has to be pre multiplied instead of post multiplied, shown in \eqref{rotationcomposition_pre}. As a result it is possible to find a single rotation matrix \textit{$R^i_n$} which describes the combination of an infinite amount of dependent rotations from \textit{i} to \textit{n}, \eqref{Rcompositioninf}.
-
+If $R^0_1$ and $R^1_2$ represents rotational transformations between reference frames \textit{0, 1} and \textit{1, 2}. Then point $p^2$ can be described in terms of $O_0$ as in \eqref{rotationcomposition}. In general, the rotation matrix from $O_i$ to $O_n$ can be found by \eqref{Rcompositioninf}.
 
 \begin{equation}\label{rotationcomposition}
 p^0 = R^0_1 R^1_2 p^2
 \end{equation}
-
-\begin{equation}\label{rotationcomposition_pre}
-p^0 = R^1_2 R^0_1 p^2 = R R^0_2 p^2
-\end{equation}
-
+\vspace{-0.4cm}
 \begin{equation}\label{Rcompositioninf}
-R^i_n = \prod_{i=0}^{n-1} R^i_{i+1}
+R^i_n = \prod_{i=i}^{n-1} R^i_{i+1}
 \end{equation}
 
 
 \subsubsection{Parametrisation of rotations}
 
-In equation \eqref{rotmatrix} the transformation were described in terms of nine independent variables. A rotation in 3D can at most have three independent variables and it is therefore convenient to perform a parametrization to get three independent variables. This can be done by using \textit{euler angles}, \textit{roll pitch yaw} or \textit{axis/angle} representation. The euler angle rotation is rotation about ZYZ axis by an amount $\phi, \theta, \psi$ respectively, see \eqref{eulertrans}. \textit{C} and \textit{s} represents the cosine and sine functions respectively. Yaw, Pitch and Roll rotations are rotations around XYZ relative to a fixed frame an described in \eqref{ywapitchroll}.
-\begin{align}\label{eulertrans}
-\begin{split}
-R_{ZYZ} &= R_{z,\phi}R_{y,\theta}R_{z,\psi} \\
-&= \begin{bmatrix}
-c_\phi c_\theta c_\psi - s_\phi s_\psi & -c_\phi c_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta\\ 
-s_\phi c_\theta c_\psi + c_\phi s_\psi & -s_\phi c_\theta s_\psi + c_\phi c_\psi  & s_\phi s_\theta \\ 
--s_\theta c_\psi & s_\theta s_\psi & c_\theta
-\end{bmatrix}
-\end{split}
-\end{align}
-
-
-\begin{align}\label{ywapitchroll}
-\begin{split}
-R_{XYZ} &= R_{z,\phi}R_{y,\theta}R_{x,\psi} \\
-&= \begin{bmatrix}
-c_\phi c_\theta & - s_\phi c_\psi + c_\phi s_\theta s_\psi & s_\phi s_\psi + c_\phi s_\theta c_\psi \\ 
-s_\phi c_\theta & c_\phi c_\psi + s_\phi s_\theta s_\psi  & - c_\phi s_\psi + s_\phi s_\theta c_\psi \\ 
--s_\theta & c_\theta s_\psi & c_\theta c_\psi
-\end{bmatrix}
-\end{split}
-\end{align}
-
-If $R_{k,\theta}$ describes the rotation about a unit vector $k$ with an angle $\theta$ we get what is called an \textit{axis/angle} rotation. If $R$ is the rotation transformation that aligns the z-axis with $k$, \eqref{similaritytrans} can bu used to derive $R_{k,\theta}$ as in \eqref{axisanglerot}.
-
-\begin{equation}\label{axisanglerot}
-R_{k,\theta} = R^{-1} R_{z,\theta} R
-\end{equation}
+In equation \eqref{rotmatrix} the transformation were described in terms of nine independent variables. A rotation in 3D space can at most have three independent variables and it is therefore convenient to perform a parametrization to get three independent variables. Three methods are \textit{euler angles}, \textit{roll pitch yaw} or \textit{axis/angle} representation. This is left here as a reference for future studies, but since one link can only rotate around one axis the parametrisation is not needed.
 
 \subsection{Rigid motion}
 
@@ -134,9 +96,9 @@ To describe the dynamics in a serial manipulator or robots in general it's kinem
 
 \subsection{Denavit-Hartenberg convention}
 
-The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (DH), first introduced in 1955 \cite{DH}. This convention also provides a common, well known framework for defining robotic systems among engineers.
+The homogeneous transformation as described in \eqref{homeqn} is a matrix of six independent variables. But introducing two constraints on how the reference frames are defined with respect to each other the total number of independent variables can be reduced to four. This is the motivation behind the \textit{\gls{DH}} (D-H), first introduced in 1955 \cite{DH}. This convention also provides a common, well known framework for defining robotic systems among engineers and has been broadly adopted.
 
-A DH transformation is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively, for link number \textit{i}. The transformation from the rigid frame $0$ to the end effector $n$ will then be the product sum of the transformations for each link, \eqref{DHsum}.
+A D-H transformation is defined as a product of four basic transformations, \eqref{DH}. Where $a_i, \alpha_i, d_i $ and $\theta_i$ represents the link length, link twist, link offset and joint angle respectively, for link number \textit{i}. The homogeneous transformation matrix from $O_0$ to the \gls{endeff} $n$ will then be the product sum of the transformations for each link, \eqref{DHsum}.
 
 \begin{align}\label{DH}
 \begin{split}
