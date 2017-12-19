@@ -12,16 +12,17 @@
 \section{T-group}
 
 
-The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection central parameters for a part like center of gravity (line 3) and a combined position orientation (line 4). The latter is called extended basis in GeoMod but defined as a \textit{frame} in the theory at page \pageref{secTheory}. It also holds a list of coordinates for the geometry (line 7).
+The \texttt{Tgroup} class is a central part of the GeoMod program. A simplified version of the class can be seen in \liref{Tgroup}. Tgroup stands for transformation group and holds a collection of central parameters for a part, like center of gravity (line 3) and a combined position orientation (line 4). The latter is called extended basis in GeoMod but defined as a \textit{frame} in the theory at page \pageref{secTheory}. It also holds a list of coordinates for the geometry (line 7).
 
 \lstinputlisting[caption={\texttt{tgroup.h}, simplified version}]{./snippet/Tgroup.h}\label{Tgroup}
 
 %\lstinputlisting[caption={\texttt{extbas.h}, simplified version}]{./snippet/ExtBasis.h}\label{ExtBasis}
 
+\vspace{-0.5cm}
+
 \section{Kinematics}
 
-
-A chained robot is made up of multiple parts described by the class \texttt{Part}, \liref{Part}. These parts could be the different parts of the chained robot in \figref{geomod_interface}. Each of the parts can be rotated with direct kinematics (line 9). The \glsf{invkin} is calculated geometrically by \texttt{invKin()}, meaning that the solution is found by a series of predefined geometric rules. These angles are then sent to \texttt{dirKin()} to perform the \glsf{dirkin} movements.
+A chained robot is made up of multiple parts described by the class \texttt{Part}, \liref{Part}. These parts could be the different parts of the chained robot in \figref{geomod_interface}. Each of the parts can be rotated with \glsf{dirkin}\textit{s} (line 9). The \glsf{invkin} is calculated geometrically by \texttt{invKin()}, meaning that the solution is found by a series of predefined geometric rules. These angles are then sent to \texttt{dirKin()} to perform the \gls{dirkin} movements. The last two functions are not part of the \texttt{Tgroup} or \texttt{Part} class.
 
 \lstinputlisting[caption={\texttt{part.h}, simplified version}]{./snippet/Part.h}\label{Part}
 

@@ -4,7 +4,7 @@
 
 \vspace{-0.8cm}
 
-The following chapter will develop the most used expressions for calculations of dynamic behaviour in a linked mechanism. Most of the notation and conventions will follow \textit{Robot Modeling and Control} by Spong (2006). \cite{spong}
+The following chapter will develop the most used expressions for calculations of dynamic behaviour in a linked mechanism. Most of the notation and conventions will follow \textit{Robot Modeling and Control} by Spong (2006)\cite{spong}. 
 
 A robotic manipulator consists of multiple links and joints, the position and orientation of these links can be represented as multiple \glsf{frame}\textit{s}. Sometimes \textit{reference frame} will be used to describe the same thing. The frame is defined with three orthogonal unit vectors and position relative to another frame.
 
@@ -72,7 +72,7 @@ In equation \eqref{rotmatrix} the transformation were described in terms of nine
 
 \subsection{Rigid motion}
 
-Rigid motion is a combination of rotation and translation. The matrix form is described as a \textit{homogeneous transformation} and is defined as a set of matrices as in \eqref{homeqn}. \textit{R} is the rotation matrix as described before and \textit{d} is the translation vector with respect to a chosen frame. The same features of composition as described in \eqref{Rcompositioninf} also applies to homogeneous transformation.
+Rigid motion is a combination of rotation and translation. The matrix form is described as a \textit{homogeneous transformation} and is defined as a set of matrices as in \eqref{homeqn}. \textit{R} is the rotation matrix as described before and \textit{d} is the translation vector with respect to a chosen frame. The same features of composition as described in \eqref{Rcompositioninf} also applies to homogeneous transformations.
 
 \begin{equation}\label{homeqn}
 H = \begin{bmatrix}
@@ -194,7 +194,7 @@ v_{n}=V_n+\omega_n\times r_n
 
 \subsection{Time difference in position vector}
 
-An optional method to the Jacobian for calculating velocities and accelerations is the following. By looking at the difference in position over a finite time period, the velocity and acceleration can be calculated. The position vector would be $d$ from \eqref{homeqn}. Velocity and acceleration can then be calculated as in \eqref{d_der} and (\ref{d_derder}). $d_i$ and $v_i$ represent the position and velocity at time $t$ respectively.
+An optional method to the Jacobian for calculating velocities and accelerations is the following. By looking at the difference in position over a finite time period, the velocity and acceleration can be calculated. The position vector would be $d$ from \eqref{homeqn}. Velocity and acceleration can then be calculated as in \eqref{d_der} and (\ref{d_derder}). $d_i$ and $v_i$ represent the position and velocity at time $t$ respectively. All values are with respect to the inertial reference frame.
 \vspace{0.3cm}
 \begin{equation}\label{d_der}
 v_i = \dot{d} = \frac{d_{i}-d_{i-1}}{t_i-t_{i-1}}
@@ -279,7 +279,7 @@ I = \int r^{2}dm
 
 \subsection{Newton-Euler formulation}
 
-An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $q(t)$? Or put in another way, given the current position, velocity and acceleration $q, \dot{q}$ and $\ddot{q}$, what is the resulting torque $\tau$ and force $f$ each joint have to endure? One method to solve this is with the \glsf{nef}. With reference to the generalized link $i$ in \figref{newtonEuler}, the  \gls{nef} will now be described in it's two steps, forward and backward recursion.
+An interesting and maybe the most important question that can be asked when it comes to dynamics for a robot, is the following: What kind of torques on each link $\mathbf{\tau}(t)$ is needed to perform a particular movement $q(t)$? Or put in another way, given the current position, velocity and acceleration $q, \dot{q}$ and $\ddot{q}$, what is the resulting torque $\tau$ and force $f$ each joint have to endure? One method to solve this is with the \glsf{nef}. With reference to the generalized link $i$ in \figref{newtonEuler}, the  \gls{nef} will now be described in it's two steps, forward and backward recursion.
 
 \begin{figure}[h!]    
     \centering           
@@ -289,7 +289,7 @@ An interesting and maybe the most important question that can be asked when it c
     \label{newtonEuler}
 \end{figure}
 
-On a general level, \gls{nef} works by setting the change in linear and angular momentum, \eqref{linear_mom} and \eqref{angular_mom} respectively, equal to it's applied forces and torques. The forward step starts with link $1$ and continues until link $n$. The imaginary joint zero has no movement so $\omega_0, \alpha_0, a_{c,0}, a_{e,0}$ are all zero. Then solve $\omega_i, \alpha_i, a_{c,i}, a_{e,i}$ from \Crefrange{omega}{a_center} for all links until $n$. This establish the velocity and acceleration of all links with respect to the \glsf{inertialframe}.
+On a general level, \gls{nef} works by setting the change in linear and angular momentum, \eqref{linear_mom} and \eqref{angular_mom} respectively, equal to it's applied forces and torques (Newton's second law of motion). The forward step starts with link $1$ and continues until link $n$. The imaginary joint zero has no movement so $\omega_0, \alpha_0, a_{c,0}, a_{e,0}$ are all zero. Then solve $\omega_i, \alpha_i, a_{c,i}, a_{e,i}$ from \Crefrange{omega}{a_center} for all links until $n$. This establish the velocity and acceleration of all links with respect to the \glsf{inertialframe}.
 
 \begin{equation}\label{linear_mom}
 \dot{p}_i = m_i a_{ci}

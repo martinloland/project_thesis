@@ -6,7 +6,7 @@ It is clear from \figref{results} that inertial forces play a big role at high a
 
 Going back to the example case of the package moving manipulator in \figref{exampleCase}, it becomes clear that information about the inertial forces would be helpful in a number of situations. Before constructing a robot manipulator, the maximum force and torque could be found for a given acceleration and the robot engineered thereafter. In addition, under runtime the robot would now have some of the tools required to determine if a certain acceleration would produce larger torques that it can handle. It can then choose a slower trajectory because of this.
 
-The validation software proved very useful. In some situations the graphical vectors did not make physical sense and many calculation errors were corrected because of this. The two main classes makes logical sense and the code base is relatively dense. It should be noted that many of the calculations are not done with efficiency in mind but rather a fast implementation time. This is something that has to improved in a production environment.
+The validation software proved very useful. In some situations the graphical vectors did not make physical sense and many calculation errors were corrected because of this. The two main classes makes logical sense and the code base is relatively dense. It should be noted that many of the calculations are not done with efficiency in mind but rather a fast implementation time. This is something that has to be improved in a production environment.
 
 \section{Future work}
 
@@ -14,7 +14,7 @@ The validation software proved very useful. In some situations the graphical vec
 At the time of writing, there are still some implementations that has to be done to complete the Newton-Euler method for calculating joint force and torque. While change in linear momentum would effect the joint force and torque, angular moment would not. This means that \eqref{angular_mom} is left out from \eqref{angular_equi}.
 
 \subsection{Implementation with GeoMod}
-When the Newton-Euler method has been tested thoroughly the next step would be to implement this into the feature set of GeoMod. Some key changes has to be mode to GeoMod for this to work. GeoMod has to handle time such that derivatives can be calculated and trajectories over finite time be created. In addition, while the validation software consist of two main classes, GeoMod is a network of many. The Newton-Euler method needs to loop through the links both ways to work and a method for this has to be created in GeoMod.
+When the Newton-Euler method has been tested thoroughly the next step would be to implement this into the feature set of GeoMod. Some key changes has to be made to GeoMod for this to work. GeoMod has to handle time such that derivatives can be calculated and trajectories over finite time be created. In addition, while the validation software consist of two main classes, GeoMod is a network of many. The Newton-Euler method needs to loop through the links both ways to work and a method for this has to be created in GeoMod.
 
 \subsection{Improved derivative calculations}
 
