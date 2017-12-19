@@ -1,4 +1,10 @@
 \chapter*{\Huge Summary}
 \addcontentsline{toc}{chapter}{Summary}
 
-\noindent \lipsum[1]
+\noindent The work presented in this thesis have examined the dynamic behaviour of a multibody serial manipulator. The current version of GeoMod has the ability to calculate torques in joints as a result of gravity forces and external load. It does not have the ability to include inertial forces that occur because of acceleration. It is therefore impossible to determine how acceleration would impact the torques on the motors and joints. The objective was to find a solution to this and validate the results.
+
+The Newton-Euler method was found as the best candidate to solve this issue for a general serial manipulator. A Qt application were created with C++ for validation of the algorithms that make up the Newton-Euler method. Additional features were added so that continuous visualization and post-processing of the results could be achieved.
+
+The impact of accelerating links on joint torques depends on the given configuration. A test was performed on a three-armed robot included in the created application. If animation time was reduced with $50\%$ from $3000ms$ to $1500ms$ the max joint force increased with approximately $25\%$, because of inertial forces. This proves that inertial forces is very relevant in high speed applications.
+
+Suggestions for future work is finalizing the Newton-Euler method for improved efficiency and generality. In addition, the calculations of derivatives rely on a primitive way to calculate time and it's accuracy should be increased. Lastly, some recommendations for additions to GeoMod has been proposed to easy the implementation of the Newton-Euler method.
