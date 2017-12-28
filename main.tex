@@ -2,6 +2,7 @@
 %\documentclass[b5paper,twoside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{mystyle}
+\usepackage[final]{pdfpages}
 
 \input{glossary}
 \input{nomenclature}
@@ -39,4 +40,6 @@
 }
 \printbibliography
 \addcontentsline{toc}{chapter}{Bibliography}
+\includepdf[pages=1,pagecommand={\addcontentsline{toc}{chapter}{Original assignment}}, width=1.19\textwidth]{Loland_P2017.pdf}
+\includepdf[pages=2,pagecommand={}, width=1.19\textwidth]{Loland_P2017.pdf}
 \end{document}

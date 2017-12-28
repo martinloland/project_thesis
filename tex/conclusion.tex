@@ -11,7 +11,7 @@ The validation software proved very useful. In some situations the graphical vec
 \section{Future work}
 
 \subsection{Finalizing the Newton-Euler method}
-At the time of writing, there are still some implementations that has to be done to complete the Newton-Euler method for calculating joint force and torque. While change in linear momentum would effect the joint force and torque, angular moment would not. This means that \eqref{angular_mom} is left out from \eqref{angular_equi}.
+At the time of writing, there are still some implementations that has to be done to complete the Newton-Euler method. Some of the calculations are not transferable to a 3D environment. In addition, the second part of \eqref{angular_mom} which use the angular velocity was not implemented to save time. It is estimated that this would not have a big impact on the final results.
 
 \subsection{Implementation with GeoMod}
 When the Newton-Euler method has been tested thoroughly the next step would be to implement this into the feature set of GeoMod. Some key changes has to be made to GeoMod for this to work. GeoMod has to handle time such that derivatives can be calculated and trajectories over finite time be created. In addition, while the validation software consist of two main classes, GeoMod is a network of many. The Newton-Euler method needs to loop through the links both ways to work and a method for this has to be created in GeoMod.
@@ -23,3 +23,5 @@ The \texttt{clock()} function mentioned in section \ref{reptime} is not very acc
 \subsection{Flexibility of joint and link}
 
 Up to this point all parts of the robot is assumed to be perfectly rigid. This means that the stiffness of joints and links is modelled as infinite. Low stiffness of links could increase the force in the joints since the links would act similar to a torsional spring. For simple dynamic modelling this is not necessary. If vibration or oscillation is important this might be useful to look into.
+
+\vspace{-1cm}
